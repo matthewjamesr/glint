@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         return [
             UsersSeeder::class,
+            CountriesSeeder::class
         ];
     }
 }

@@ -1,5 +1,7 @@
 <?php
 
-app()->get("/", function () {
-    echo view("index");
-});
+app()->setNamespace('\App\Controllers');
+
+app()->get('/', 'PagesController@index');
+
+app()->resource('/countries', 'CountriesController');
