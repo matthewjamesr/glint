@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\Country;
+use App\Models\News;
 
 class CountriesController extends Controller
 {    
@@ -44,9 +45,12 @@ class CountriesController extends Controller
      */
     public function show($name)
     {
-        $id = Country::where('country', $name)->first();
-        $row = Country::find($id["id"]);
-        echo view("countries.show", ['country' => $row]);
+        $country = Country::where('country', $name)->first();
+        $row = Country::find($country["id"]);
+
+        $news = News::where('country', $name)->get();
+
+        echo view("countries.show", ['country' => $row, 'news' => $news]);
     }
 
     /**
