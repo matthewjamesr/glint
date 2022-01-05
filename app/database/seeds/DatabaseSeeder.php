@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run() : array
     {
         return [
-            UsersSeeder::class,
-            CountriesSeeder::class
+            CountriesSeeder::class,
+            NewsSeeder::class
         ];
     }
 }
