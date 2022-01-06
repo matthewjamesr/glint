@@ -8,6 +8,13 @@ use App\Models\User;
 
 Auth::autoConnect();
 
+$user = auth()->user();
+
+if ($user == null) {
+    Router::push("/");
+    echo 'hi';
+}
+
 class UsersController extends Controller
 {    
     /**
@@ -24,15 +31,6 @@ class UsersController extends Controller
         |
         */
         // response(User::all());
-        
-        $user = auth()->user();
-
-        if ($user == null) {
-            Router::push("/");
-            echo 'hi';
-        } else{
-            echo 'User info: '.$user;
-        }
     }
 
     /**
