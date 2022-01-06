@@ -15,14 +15,16 @@ class UsersSeeder extends Seeder
     public function run()
     {
         // You can directly create db records
-        // $user = new User();
-        // $user->name = 'Mychi';
-        // $user->email = "mickdd22@gmail.com";
-        // $user->password = md5("password.demo");
-        // $user->save();
+        $user = new User();
+        $user->username = "matthewjames3";
+        $user->fullname = 'Matthew Reichardt';
+        $user->email = "me@matthewreichardt.com";
+        $user->password = md5("13qeadzc!#QEADZC");
+        $user->phone = "8507379343";
+        $user->save();
 
         // You can also use factories like this
-        (new UserFactory)->create(5)->save();
+        //(new UserFactory)->create(5)->save();
 
         // even better, you can use them together :-)
     }
