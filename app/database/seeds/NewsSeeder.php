@@ -15,7 +15,7 @@ class NewsSeeder extends Seeder
     public function run()
     {
         $news = new News();
-        $news->title = "Test article";
+        $news->title = "Big Trouble in Little China";
         $news->description = "This was a test";
         $news->type = "article";
         $news->country = "china";
@@ -32,8 +32,8 @@ class NewsSeeder extends Seeder
         $news->save();
 
         $news = new News();
-        $news->title = "Test article";
-        $news->description = "This was a test";
+        $news->title = "KJU Throws a Family Reunion";
+        $news->description = "Artillery's someone in the chest";
         $news->type = "article";
         $news->country = "dprk";
         $news->markdown = "
@@ -49,7 +49,7 @@ class NewsSeeder extends Seeder
         $news->save();
 
         $news = new News();
-        $news->title = "Test article";
+        $news->title = "Putin Continues to Vamp";
         $news->description = "This was a test";
         $news->type = "article";
         $news->country = "russia";

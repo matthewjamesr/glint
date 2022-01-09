@@ -50,9 +50,25 @@ class NewsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function showChina($title)
     {
-        //
+        $title = str_replace('_', ' ', $title);
+        $article = News::where(['country' => 'China', 'type' => 'article', 'title' => $title])->first();
+        echo view("news.show", ['article' => $article]);
+    }
+
+    public function showDPRK($title)
+    {
+        $title = str_replace('_', ' ', $title);
+        $article = News::where(['country' => 'DPRK', 'type' => 'article', 'title' => $title])->first();
+        echo view("news.show", ['article' => $article]);
+    }
+
+    public function showRussia($title)
+    {
+        $title = str_replace('_', ' ', $title);
+        $article = News::where(['country' => 'Russia', 'type' => 'article', 'title' => $title])->first();
+        echo view("news.show", ['article' => $article]);
     }
 
     /**

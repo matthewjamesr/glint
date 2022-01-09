@@ -1,7 +1,7 @@
 body {
     background-color: rgb(0, 30, 38);
     color: white;
-    font-family: DM Sans, sans-serif;
+    font-family: 'Roboto', sans-serif;
     font-size: 14px;
 }
 h1 {
@@ -144,10 +144,31 @@ p {
 
 .countries .hero {
     position: relative;
+    width: 100%;
+    height: 100%;
     border: 1px solid rgb(28, 114, 138);
     border-radius: 10px;
     padding: 75px 15px 75px 15px;
     background-color: #1fe7d7;
+}
+
+.countries .no-border {
+    border: 0px;
+}
+
+.countries .hero .flag {
+    z-index: 1;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+}
+
+.countries .hero .content {
+    position: relative;
+    z-index: 3;
 }
 
 .countries .hero p {
@@ -229,4 +250,95 @@ p {
 .countries .list .country:hover {
     background-color: #22948e;
     cursor: pointer;
+}
+
+.blips .border {
+    position: relative;
+    text-align: center;
+    border: 1px solid rgb(28, 114, 138) !important;
+    border-radius: 10px;
+    padding: 45px 15px 0px 15px;
+    margin: 20px 5px 20px 5px;
+    height: 100%;
+    transition: background-color 0.5s ease;
+}
+
+.blips h6 {
+    margin-top: 15px;
+}
+
+.news  {
+    max-width: 750px;
+    margin: 0px auto;
+    padding: 25px 0px 0px 0px;
+
+}
+
+.news a {
+    padding: 0px;
+}
+
+.news .article {
+    padding: 25px 35px 25px 35px;
+    transition: background-color 0.5s ease;
+}
+
+.news .article:hover {
+    background-color: rgb(3, 42, 53);
+}
+
+.news .article span {
+    position: relative;
+    top: 5px;
+}
+
+.news .article i {
+    position: relative;
+    font-size: 150%;
+    left: 5px;
+    top: 4px;
+}
+
+/* Show a article for reading */
+
+.article h1 {
+    font-weight: 900;
+}
+
+.article h3 {
+    font-weight: 400;
+    color: #14eee3;
+}
+
+.article .date {
+    font-weight: 100;
+    margin-top: 15px;
+}
+
+.article .back {
+    color:rgb(243, 219, 0)
+}
+
+.article .back i {
+    margin-right: 5px;
+    margin-bottom: 25px;
+}
+
+.processed-html {
+    margin-top: 25px;
+}
+
+.processed-html h1, .processed-html h2, .processed-html h3, .processed-html h4, .processed-html h5, .processed-html h6 {
+    margin: 15px 0px 15px 0px;
+}
+
+.processed-html p {
+    font-weight: 400;
+    color: #fff;
+    letter-spacing: 1px;
+}
+
+.processed-html strong {
+    color: #14eee3;
+    letter-spacing: 1px;
 }

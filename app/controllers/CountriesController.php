@@ -43,14 +43,43 @@ class CountriesController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($name)
+    public function showChina()
     {
+        $name = 'China';
         $country = Country::where('country', $name)->first();
         $row = Country::find($country["id"]);
 
-        $news = News::where('country', $name)->get();
+        $articles = News::where(['country' => $name, 'type' => 'article'])->take(10)->get();
+        $blips = News::where(['country' => $name, 'type' => 'blip'])->take(10)->get();
+        $videos = News::where(['country' => $name, 'type' => 'video'])->take(10)->get();
 
-        echo view("countries.show", ['country' => $row, 'news' => $news]);
+        echo view("countries.show", ['country' => $row, 'articles' => $articles, 'blips' => $blips, 'videos' => $videos]);
+    }
+
+    public function showDPRK()
+    {
+        $name = 'DPRK';
+        $country = Country::where('country', $name)->first();
+        $row = Country::find($country["id"]);
+
+        $articles = News::where(['country' => $name, 'type' => 'article'])->take(10)->get();
+        $blips = News::where(['country' => $name, 'type' => 'blip'])->take(10)->get();
+        $videos = News::where(['country' => $name, 'type' => 'video'])->take(10)->get();
+
+        echo view("countries.show", ['country' => $row, 'articles' => $articles, 'blips' => $blips, 'videos' => $videos]);
+    }
+
+    public function showRussia()
+    {
+        $name = 'Russia';
+        $country = Country::where('country', $name)->first();
+        $row = Country::find($country["id"]);
+
+        $articles = News::where(['country' => $name, 'type' => 'article'])->take(10)->get();
+        $blips = News::where(['country' => $name, 'type' => 'blip'])->take(10)->get();
+        $videos = News::where(['country' => $name, 'type' => 'video'])->take(10)->get();
+
+        echo view("countries.show", ['country' => $row, 'articles' => $articles, 'blips' => $blips, 'videos' => $videos]);
     }
 
     /**
