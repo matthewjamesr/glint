@@ -2,7 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Models\Country;
 use App\Models\News;
+use Leaf\Form;
+use Leaf\Router;
+use Parsedown;
 
 class NewsController extends Controller
 {    
@@ -27,7 +31,8 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+        $countries = Country::all();
+        echo view('news.create', ['countries' => $countries]);
     }
 
     /**
@@ -45,6 +50,53 @@ class NewsController extends Controller
         // $row = new News;
         // $row->column = requestData("column");
         // $row->delete();
+
+        $Parsedown = new Parsedown();
+        $data = Form::body();
+
+        Form::rule('country', function ($field, $value) {
+            if (($value == 'Choose country')) {
+                Form::addError($field, "$field is not selected");
+                return false;
+            }
+        });
+
+        Form::rule('type', function ($field, $value) {
+            if (($value == 'Choose type')) {
+                Form::addError($field, "$field is not selected");
+                return false;
+            }
+        });
+
+        $validatorSuccess = Form::validate([
+            'type' => ['required', 'type'],
+            'title' => ['required', 'text', 'max:60'],
+            'description' => ['required', 'max:120'],
+            'country' => ['required', 'country']
+          ]);
+          
+          if (!$validatorSuccess) {
+            response()->throwErr(Form::errors());
+            Router::push("/");
+          } else {
+            $row = new News;
+            $row->title = $data['title'];
+            $row->description = $data['description'];
+            $row->type = $data['type'];
+            $row->country = $data['country'];
+            $row->markdown = $data['markdown'];
+            $row->processed_html = $Parsedown->text($data['markdown']);
+            $row->video_url = $data['video_url'];
+            $row->save();
+            
+            if ($data['type'] == 'article') {
+                Router::push('/'.strtolower($data['country']).'/'.str_replace(' ', '_', $data['title']));
+            }
+
+            if ($data['type'] == 'video') {
+                Router::push('/'.strtolower($data['country']));
+            }
+          }
     }
 
     /**
@@ -54,21 +106,21 @@ class NewsController extends Controller
     {
         $title = str_replace('_', ' ', $title);
         $article = News::where(['country' => 'China', 'type' => 'article', 'title' => $title])->first();
-        echo view("news.show", ['article' => $article]);
+        echo view('news.show', ['article' => $article]);
     }
 
     public function showDPRK($title)
     {
         $title = str_replace('_', ' ', $title);
         $article = News::where(['country' => 'DPRK', 'type' => 'article', 'title' => $title])->first();
-        echo view("news.show", ['article' => $article]);
+        echo view('news.show', ['article' => $article]);
     }
 
     public function showRussia($title)
     {
         $title = str_replace('_', ' ', $title);
         $article = News::where(['country' => 'Russia', 'type' => 'article', 'title' => $title])->first();
-        echo view("news.show", ['article' => $article]);
+        echo view('news.show', ['article' => $article]);
     }
 
     /**

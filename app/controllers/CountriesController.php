@@ -49,9 +49,9 @@ class CountriesController extends Controller
         $country = Country::where('country', $name)->first();
         $row = Country::find($country["id"]);
 
-        $articles = News::where(['country' => $name, 'type' => 'article'])->take(10)->get();
-        $blips = News::where(['country' => $name, 'type' => 'blip'])->take(10)->get();
-        $videos = News::where(['country' => $name, 'type' => 'video'])->take(10)->get();
+        $articles = News::where(['country' => $name, 'type' => 'article'])->take(10)->orderBy('created_at', 'DESC')->get();
+        $blips = News::where(['country' => $name, 'type' => 'blip'])->take(10)->orderBy('created_at', 'DESC')->get();
+        $videos = News::where(['country' => $name, 'type' => 'video'])->take(10)->orderBy('created_at', 'DESC')->get();
 
         echo view("countries.show", ['country' => $row, 'articles' => $articles, 'blips' => $blips, 'videos' => $videos]);
     }

@@ -278,21 +278,21 @@ p {
     padding: 0px;
 }
 
-.news .article {
+.news .article, .news .video {
     padding: 25px 35px 25px 35px;
     transition: background-color 0.5s ease;
 }
 
-.news .article:hover {
+.news .article:hover, .news .video:hover {
     background-color: rgb(3, 42, 53);
 }
 
-.news .article span {
+.news .article span, .news .video span {
     position: relative;
     top: 5px;
 }
 
-.news .article i {
+.news .article i, .news .video i {
     position: relative;
     font-size: 150%;
     left: 5px;
@@ -341,4 +341,27 @@ p {
 .processed-html strong {
     color: #14eee3;
     letter-spacing: 1px;
+}
+
+.processed-html img {
+    display: block;
+    padding: 5px;
+    width: 60%;
+    height: auto;
+    margin: 25px auto;
+    background-color: #14eee3;
+    border-radius: 5px;
+}
+
+#editor {
+    background-color: #fff;
+}
+
+.news .video h4 {
+    font-weight: 900;
+}
+
+.news .video h5 {
+    font-weight: 400;
+    color: #14eee3;
 }
