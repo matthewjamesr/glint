@@ -21,6 +21,7 @@ class CreateNews extends Database
                 $table->string("country");
                 $table->text("markdown");
                 $table->text("processed_html");
+                $table->text("video_url")->nullable();
                 $table->timestamps();
             });
         endif;

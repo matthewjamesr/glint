@@ -32,6 +32,22 @@ class NewsSeeder extends Seeder
         $news->save();
 
         $news = new News();
+        $news->title = "China Uncensored";
+        $news->description = "The Greatest Threat to Taiwan Isn’t Chinese Warships...";
+        $news->type = "video";
+        $news->country = "china";
+        $news->markdown = "
+            .
+        ";
+        $news->processed_html = '
+            .
+        ';
+        $news->video_url = "https://www.youtube.com/watch?v=fqpfxr0YHwY";
+
+        $news->save();
+
+
+        $news = new News();
         $news->title = "KJU Throws a Family Reunion";
         $news->description = "Artillery's someone in the chest";
         $news->type = "article";
