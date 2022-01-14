@@ -13,6 +13,18 @@ $(document).ready(function () {
     $("#glintRussia").click(function () {
         window.location.href = "/russia"
     })
+
+    $('#type').on('change', function () {
+        if (this.value == 'video') {
+            $('#form-title-input').hide();
+            $('#form-description-input').hide();
+            $('#form-editor-input').hide();
+        } else {
+            $('#form-title-input').show();
+            $('#form-description-input').show();
+            $('#form-editor-input').show();
+        }
+    });
 })
 
 const editor = new Editor({
