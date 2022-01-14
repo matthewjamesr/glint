@@ -248,7 +248,7 @@ p {
 }
 
 .countries .list .country:hover {
-    background-color: #22948e;
+    background-color: rgb(3, 42, 53);
     cursor: pointer;
 }
 
