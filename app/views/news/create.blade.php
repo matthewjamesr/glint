@@ -17,7 +17,7 @@
                                 <option value="article">Article</option>
                             </select>
                         </div>
-                        <div class="mb-3 col-sm-12 col-md-3">
+                        <div class="mb-3 col-sm-12 col-md-3" id="form-country-input">
                             <label for="country" class="form-label is-valid">Country</label>
                             <select class="form-select" aria-label="Select a country" id="country" name="country">
                                 <option selected>Choose country</option>
@@ -38,7 +38,7 @@
                             <input type="text" class="form-control" id="description" name="description">
                             <div id="descriptionHelp" class="form-text">Max-length: 120 characters</div>
                         </div>
-                        <div class="mb-3 col-sm-12 col-md-6">
+                        <div class="mb-3 col-sm-12 col-md-6" id="form-video-url-input">
                             <label for="video_url" class="form-label is-valid">Video URL</label>
                             <input type="text" class="form-control" id="video_url" name="video_url" aria-describedby="videoHelp" autocomplete="off">
                             <div id="videoHelp" class="form-text">Paste URL to video</div>

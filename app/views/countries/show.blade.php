@@ -61,8 +61,8 @@
                             @foreach ($articles as $article)
                                 <a href="/{{ strtolower($article['country']) }}/{{ str_replace(' ', '_', $article['title']) }}" style="margin-top: 0px;">
                                     <div class="col-12 article text-start">
-                                        <h1>{{ html_entity_decode($article['title'], ENT_QUOTES) }}</h1>
-                                        <h3>{{ html_entity_decode($article['description'], ENT_QUOTES) }}</h3>
+                                        <h4>{{ html_entity_decode($article['title'], ENT_QUOTES) }}</h4>
+                                        <h5>{{ html_entity_decode($article['description'], ENT_QUOTES) }}</h5>
                                         <span>Read more <i class="fas fa-long-arrow-alt-right"></i></span>
                                     </div>
                                 </a>

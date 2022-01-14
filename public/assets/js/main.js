@@ -15,13 +15,30 @@ $(document).ready(function () {
     })
 
     $('#type').on('change', function () {
-        if (this.value == 'video') {
+        if (this.value == 'Choose type') {
+            $('#form-country-input').hide();
             $('#form-title-input').hide();
             $('#form-description-input').hide();
+            $('#form-video-url-input').hide();
             $('#form-editor-input').hide();
-        } else {
+        }
+        if (this.value == 'video') {
+            $('#form-country-input').show();
+            $('#form-title-input').hide();
+            $('#form-description-input').hide();
+            $('#form-video-url-input').show();
+            $('#form-editor-input').hide();
+        } else if (this.value == 'article') {
+            $('#form-country-input').show();
             $('#form-title-input').show();
             $('#form-description-input').show();
+            $('#form-video-url-input').hide();
+            $('#form-editor-input').show();
+        } else if (this.value == 'blip') {
+            $('#form-country-input').show();
+            $('#form-title-input').hide();
+            $('#form-description-input').hide();
+            $('#form-video-url-input').hide();
             $('#form-editor-input').show();
         }
     });

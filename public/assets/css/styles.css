@@ -136,6 +136,10 @@ p {
     margin-left: 5px;
 }
 
+.front-page .video, .front-page .article {
+    height: 100%;
+}
+
 /* countries.all */
 
 .countries {
@@ -169,6 +173,11 @@ p {
 .countries .hero .content {
     position: relative;
     z-index: 3;
+}
+
+.countries .hero .content h1 {
+    font-weight: 600;
+    letter-spacing: 1px;
 }
 
 .countries .hero p {
@@ -276,9 +285,11 @@ p {
 
 .news a {
     padding: 0px;
+    margin: 0px;
 }
 
 .news .article, .news .video {
+    position: relative;
     padding: 25px 35px 25px 35px;
     transition: background-color 0.5s ease;
 }
@@ -288,8 +299,8 @@ p {
 }
 
 .news .article span, .news .video span {
-    position: relative;
-    top: 5px;
+    position: absolute;
+    bottom: 10px;
 }
 
 .news .article i, .news .video i {
@@ -301,11 +312,12 @@ p {
 
 /* Show a article for reading */
 
-.article h1 {
+.article h4 {
     font-weight: 900;
 }
 
-.article h3 {
+.article h5 {
+    margin-bottom: 10px;
     font-weight: 400;
     color: #14eee3;
 }
@@ -365,11 +377,22 @@ p {
     background-color: #fff;
 }
 
+#form-country-input, #form-title-input, #form-description-input, #form-video-url-input, #form-editor-input {
+    display: none;
+}
+
 .news .video h4 {
     font-weight: 900;
 }
 
 .news .video h5 {
+    margin-bottom: 10px;
     font-weight: 400;
     color: #14eee3;
+}
+
+.article i.fa-youtube, .video i.fa-youtube {
+    margin: -1px 12px 0px 0px;
+    font-size: 16pt !important;
+    color: #FF0000;
 }
