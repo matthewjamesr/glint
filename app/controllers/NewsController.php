@@ -68,35 +68,96 @@ class NewsController extends Controller
             }
         });
 
-        $validatorSuccess = Form::validate([
-            'type' => ['required', 'type'],
-            'title' => ['required', 'text', 'max:60'],
-            'description' => ['required', 'max:120'],
-            'country' => ['required', 'country']
-          ]);
-          
-          if (!$validatorSuccess) {
-            response()->throwErr(Form::errors());
-            Router::push("/");
-          } else {
-            $row = new News;
-            $row->title = $data['title'];
-            $row->description = $data['description'];
-            $row->type = $data['type'];
-            $row->country = $data['country'];
-            $row->markdown = $data['markdown'];
-            $row->processed_html = $Parsedown->text($data['markdown']);
-            $row->video_url = $data['video_url'];
-            $row->save();
-            
-            if ($data['type'] == 'article') {
+        if ($data['type'] == 'article') {
+            $validatorSuccess = Form::validate([
+                'type' => ['required', 'type'],
+                'title' => ['required', 'text', 'max:60'],
+                'description' => ['required', 'max:120'],
+                'country' => ['required', 'country'],
+                'markdown' => ['required']
+            ]);
+              
+            if (!$validatorSuccess) {
+                response()->throwErr(Form::errors());
+                Router::push("/");
+            } else {            
+                $row = new News;
+                $row->title = $data['title'];
+                $row->description = $data['description'];
+                $row->type = $data['type'];
+                $row->country = $data['country'];
+                $row->markdown = $data['markdown'];
+                $row->processed_html = $Parsedown->text($data['markdown']);
+                $row->save();
                 Router::push('/'.strtolower($data['country']).'/'.str_replace(' ', '_', $data['title']));
             }
+        }
 
-            if ($data['type'] == 'video') {
+        if ($data['type'] == 'video') {
+            $validatorSuccess = Form::validate([
+                'type' => ['required', 'type'],
+                'country' => ['required', 'country'],
+                'video_url' => ['required']
+            ]);
+              
+            if (!$validatorSuccess) {
+                response()->throwErr(Form::errors());
+                Router::push("/");
+            } else {  
+                header('Content-Type: text/html; charset=ISO-8859-1');
+
+                $video = $data['video_url'];
+                $vString = explode("v=", $video);
+                $video_id = $vString[1];
+
+                $row = new News;
+
+                $youtube_api_path = 
+                    'https://www.googleapis.com/youtube/v3/videos?id=' 
+                    . $video_id . '&key=' . getenv('YOUTUBE_API_KEY') . '&part=snippet';
+
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_HEADER, 0);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                /* Set the URL and options  */
+                curl_setopt($ch, CURLOPT_URL, $youtube_api_path);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+                curl_setopt($ch, CURLOPT_VERBOSE, 0);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                $curlResource = curl_exec($ch);
+                curl_close($ch);
+
+                $youtubeData = json_decode($curlResource);
+                $youtubeVals = json_decode(json_encode($youtubeData), true);
+
+                $row->description = $youtubeVals['items'][0]['snippet']['title'];
+                $row->type = 'video';
+                $row->country = $data['country'];
+                $row->video_url = $video;
+
+                $youtube_api_path = 
+                'https://www.googleapis.com/youtube/v3/channels?id=' 
+                . $youtubeVals['items'][0]['snippet']['channelId'] . '&key=' . getenv('YOUTUBE_API_KEY') . '&part=snippet';
+
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_HEADER, 0);
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+                /* Set the URL and options  */
+                curl_setopt($ch, CURLOPT_URL, $youtube_api_path);
+                curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+                curl_setopt($ch, CURLOPT_VERBOSE, 0);
+                curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+                $curlResource = curl_exec($ch);
+                curl_close($ch);
+
+                $youtubeData = json_decode($curlResource);
+                $youtubeVals = json_decode(json_encode($youtubeData), true);
+
+                $row->title = $youtubeVals['items'][0]['snippet']['title'];
+                $row->save();
                 Router::push('/'.strtolower($data['country']));
             }
-          }
+        }
     }
 
     /**
