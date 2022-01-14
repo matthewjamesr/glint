@@ -353,6 +353,14 @@ p {
     border-radius: 5px;
 }
 
+.processed-html pre {
+    width:min-content;
+    padding: 5px 0px 5px 15px;
+    letter-spacing: 1px;
+    color: #fff;
+    border-left: 3px solid #14eee3;
+}
+
 #editor {
     background-color: #fff;
 }
