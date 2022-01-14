@@ -104,12 +104,33 @@ ion-icon {
     width: 100px;
 }
 
+.welcome-page {
+    padding-top: 0px;
+    margin-top: 0px !important;
+}
+
+.welcome-page .border {
+    padding-top: 0px !important;
+}
+
 @media only screen and (max-width: 500px) {
     .flex.card {
         flex-wrap: wrap;
     }
     .flex.card > * {
         width: 100% !important;
+    }
+}
+
+@media only screen and (min-width: 1800px) {
+    .welcome-page {
+        width: 65% !important;
+        max-width: 1500px !important;
+    }
+
+    .news  {
+        max-width: 1400px !important;
+    
     }
 }
 
@@ -290,7 +311,7 @@ p {
 
 .news .article, .news .video {
     position: relative;
-    padding: 25px 35px 25px 35px;
+    padding: 25px 35px 45px 35px;
     transition: background-color 0.5s ease;
 }
 
@@ -300,7 +321,7 @@ p {
 
 .news .article span, .news .video span {
     position: absolute;
-    bottom: 10px;
+    bottom: 15px;
 }
 
 .news .article i, .news .video i {
@@ -313,6 +334,7 @@ p {
 /* Show a article for reading */
 
 .article h4 {
+    margin-bottom: 5px;
     font-weight: 900;
 }
 
@@ -383,6 +405,7 @@ p {
 
 .news .video h4 {
     font-weight: 900;
+    margin-bottom: 5px;
 }
 
 .news .video h5 {
