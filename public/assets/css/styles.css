@@ -414,8 +414,14 @@ p {
     color: #14eee3;
 }
 
-.article i.fa-youtube, .video i.fa-youtube {
+.video i.fa-youtube {
     margin: -1px 12px 0px 0px;
     font-size: 16pt !important;
     color: #FF0000;
+}
+
+.article i.fa-newspaper {
+    margin: -1px 12px 0px 0px;
+    font-size: 16pt !important;
+    color: rgb(255, 252, 45);
 }
