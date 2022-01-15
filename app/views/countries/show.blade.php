@@ -43,7 +43,7 @@
                                 <div class="col-12 video text-start">
                                     <h4>{{ html_entity_decode($video['title'], ENT_QUOTES) }}</h4>
                                     <h5>{{ html_entity_decode($video['description'], ENT_QUOTES) }}</h5>
-                                    <span>Watch now <i class="fas fa-long-arrow-alt-right"></i></span>
+                                    <span>Watch <i class="fas fa-long-arrow-alt-right"></i></span>
                                 </div>
                             </a>
                         @endforeach
@@ -63,7 +63,7 @@
                                     <div class="col-12 article text-start">
                                         <h4>{{ html_entity_decode($article['title'], ENT_QUOTES) }}</h4>
                                         <h5>{{ html_entity_decode($article['description'], ENT_QUOTES) }}</h5>
-                                        <span>Read more <i class="fas fa-long-arrow-alt-right"></i></span>
+                                        <span>Read <i class="fas fa-long-arrow-alt-right"></i></span>
                                     </div>
                                 </a>
                             @endforeach

@@ -26,7 +26,7 @@
                                         <i class="fab fa-youtube float-start"></i>
                                         <h4> {{ html_entity_decode($news['title'], ENT_QUOTES) }}</h4>
                                         <h5>{{ html_entity_decode($news['description'], ENT_QUOTES) }}</h5>
-                                        <span class="float-start">Watch now <i class="fas fa-long-arrow-alt-right"></i></span>
+                                        <span class="float-start">Watch <i class="fas fa-long-arrow-alt-right"></i></span>
                                     </div>
                                 </a>
                             @elseif ($news['type'] == 'article')
@@ -35,7 +35,7 @@
                                         <i class="far fa-newspaper float-start"></i>
                                         <h4>{{ html_entity_decode($news['title'], ENT_QUOTES) }}</h4>
                                         <h5>{{ html_entity_decode($news['description'], ENT_QUOTES) }}</h5>
-                                        <span>Read more <i class="fas fa-long-arrow-alt-right"></i></span>
+                                        <span>Read <i class="fas fa-long-arrow-alt-right"></i></span>
                                     </div>
                                 </a>
                                 @elseif ($news['type'] == 'blip')
