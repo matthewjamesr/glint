@@ -337,12 +337,20 @@ p {
 
 /* Show a article for reading */
 
-.article h4 {
+.article .breadcrumb-item {
+    letter-spacing: 0.5px;
+}
+
+.article .breadcrumb-item a {
+    border-bottom: 1px solid rgb(243, 219, 0);
+}
+
+.article h1, .article h4 {
     margin-bottom: 5px;
     font-weight: 900;
 }
 
-.article h5 {
+.article h3, .article h5 {
     margin-bottom: 10px;
     font-weight: 400;
     color: #14eee3;
@@ -353,8 +361,8 @@ p {
     margin-top: 15px;
 }
 
-.article .back {
-    color:rgb(243, 219, 0)
+.article .breadcrumb {
+
 }
 
 .article .back i {
@@ -379,6 +387,11 @@ p {
 .processed-html strong {
     color: #14eee3;
     letter-spacing: 1px;
+}
+
+.processed-html a {
+    letter-spacing: 0.5px;
+    border-bottom: 1px solid rgb(243, 219, 0);
 }
 
 .processed-html img {
