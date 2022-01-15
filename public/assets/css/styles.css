@@ -316,7 +316,7 @@ p {
 .news .article, .news .video {
     position: relative;
     padding: 25px 35px 45px 35px;
-    transition: background-color 0.5s ease;
+    transition: background-color 0.3s ease;
 }
 
 .news .article:hover, .news .video:hover {
@@ -359,10 +359,6 @@ p {
 .article .date {
     font-weight: 100;
     margin-top: 15px;
-}
-
-.article .breadcrumb {
-
 }
 
 .article .back i {
