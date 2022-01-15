@@ -207,12 +207,17 @@ p {
     letter-spacing: 1px;
 }
 
+.countries .hero h1 {
+    color: #000;
+    font-weight: 900;
+}
+
 .countries .hero p {
     position: relative;
     top: 15px;
     text-align: center;
-    color: #08726b;
-    font-weight: 600;
+    color: #000;
+    font-weight: 500;
 }
 
 .countries .hero p b {
