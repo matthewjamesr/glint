@@ -23,15 +23,18 @@
 <body>
     <div class="container welcome">
         <div class="row">
-            <div class="col s12 m4">
+            <div class="col-6 col-sm-4 col-md-4">
                 <h1><a href="/">Glint</a></h1>
                 <h5><small class="text-muted">Bite-sized intel delivered</small></h5>
             </div>
-            <div class="col m8 d-sm-none d-md-block">
-                <ul class="float-end nav">
+            <div class="col-6 col-sm-8 col-md-8" style="padding-right: 0px;">
+                <ul class="float-end nav d-none d-sm-none d-md-block">
                     <li><a href="/china">China <img src="{{ PublicPath('flags/china_flag.png') }}"></img></a></li>
                     <li><a href="/dprk">DPRK <img src="{{ PublicPath('flags/dprk_flag.png') }}"></img></a></li>
                     <li><a href="/countries">All</a></li>
+                </ul>
+                <ul class="float-end nav d-block d-md-none">
+                    <li><a href="/countries">Countries</a></li>
                 </ul>
             </div>
         </div>
