@@ -104,6 +104,25 @@ ion-icon {
     width: 100px;
 }
 
+i.fa-facebook {
+    color: #4267B2;
+    background: #fff;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+i.fa-twitter {
+    color: #1DA1F2;
+}
+
+i.fa-reddit {
+    color: #FF5700;
+    background: #fff;
+    border-radius: 50%;
+    padding: 2px;
+}
+
+
 .welcome-page {
     padding-top: 0px;
     margin-top: 0px !important;
@@ -410,6 +429,29 @@ p {
     letter-spacing: 1px;
     color: #fff;
     border-left: 3px solid #14eee3;
+}
+
+.share {
+    border: 1px solid rgb(28, 114, 138) !important;
+    border-radius: 10px;
+    padding: 45px 15px 25px 15px;
+    margin: 35px auto 20px auto;
+    max-width: 600px;
+}
+
+.share h4 {
+    font-weight: 900;
+}
+
+.share .options {
+    margin: 5px 0px 0px 0px;
+    padding: 0px;
+}
+
+.share .options li {
+    list-style-type: none;
+    font-size: 32pt;
+    text-align: center;
 }
 
 #editor {
