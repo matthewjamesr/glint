@@ -33,8 +33,9 @@ class NewsController extends Controller
     public function create()
     {
         Auth::guard('auth');
+        $user = Auth::user("users", ["password"]);
         $countries = Country::all();
-        echo view('news.create', ['countries' => $countries]);
+        echo view('news.create', ['user' => $user, 'countries' => $countries]);
     }
 
     /**

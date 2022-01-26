@@ -5,6 +5,8 @@ namespace App\Controllers;
 use App\Models\Country;
 use App\Models\News;
 
+use Leaf\Auth;
+
 class CountriesController extends Controller
 {    
     /**
@@ -12,7 +14,12 @@ class CountriesController extends Controller
      */
     public function index()
     {
-        echo view("countries.all", ['countries' => Country::orderBy('country', 'asc')->get()]);
+        if (auth()->status()) {
+            $user = Auth::user("users", ["password"]);
+            echo view("countries.all", ['user' => $user, 'countries' => Country::orderBy('country', 'asc')->get()]);
+        } else {
+            echo view("countries.all", ['countries' => Country::orderBy('country', 'asc')->get()]);
+        }
     }
 
     /**
@@ -53,7 +60,12 @@ class CountriesController extends Controller
         $blips = News::where(['country' => $name, 'type' => 'blip'])->take(10)->orderBy('created_at', 'DESC')->get();
         $videos = News::where(['country' => $name, 'type' => 'video'])->take(10)->orderBy('created_at', 'DESC')->get();
 
-        echo view("countries.show", ['country' => $row, 'articles' => $articles, 'blips' => $blips, 'videos' => $videos]);
+        if (auth()->status()) {
+            $user = Auth::user("users", ["password"]);
+            echo view("countries.show", ['user' => $user, 'country' => $row, 'articles' => $articles, 'blips' => $blips, 'videos' => $videos]);
+        } else {
+            echo view("countries.show", ['country' => $row, 'articles' => $articles, 'blips' => $blips, 'videos' => $videos]);
+        }
     }
 
     public function showDPRK()
@@ -62,11 +74,16 @@ class CountriesController extends Controller
         $country = Country::where('country', $name)->first();
         $row = Country::find($country["id"]);
 
-        $articles = News::where(['country' => $name, 'type' => 'article'])->take(10)->get();
-        $blips = News::where(['country' => $name, 'type' => 'blip'])->take(10)->get();
-        $videos = News::where(['country' => $name, 'type' => 'video'])->take(10)->get();
+        $articles = News::where(['country' => $name, 'type' => 'article'])->take(10)->orderBy('created_at', 'DESC')->get();
+        $blips = News::where(['country' => $name, 'type' => 'blip'])->take(10)->orderBy('created_at', 'DESC')->get();
+        $videos = News::where(['country' => $name, 'type' => 'video'])->take(10)->orderBy('created_at', 'DESC')->get();
 
-        echo view("countries.show", ['country' => $row, 'articles' => $articles, 'blips' => $blips, 'videos' => $videos]);
+        if (auth()->status()) {
+            $user = Auth::user("users", ["password"]);
+            echo view("countries.show", ['user' => $user, 'country' => $row, 'articles' => $articles, 'blips' => $blips, 'videos' => $videos]);
+        } else {
+            echo view("countries.show", ['country' => $row, 'articles' => $articles, 'blips' => $blips, 'videos' => $videos]);
+        }
     }
 
     public function showRussia()
@@ -75,11 +92,16 @@ class CountriesController extends Controller
         $country = Country::where('country', $name)->first();
         $row = Country::find($country["id"]);
 
-        $articles = News::where(['country' => $name, 'type' => 'article'])->take(10)->get();
-        $blips = News::where(['country' => $name, 'type' => 'blip'])->take(10)->get();
-        $videos = News::where(['country' => $name, 'type' => 'video'])->take(10)->get();
+        $articles = News::where(['country' => $name, 'type' => 'article'])->take(10)->orderBy('created_at', 'DESC')->get();
+        $blips = News::where(['country' => $name, 'type' => 'blip'])->take(10)->orderBy('created_at', 'DESC')->get();
+        $videos = News::where(['country' => $name, 'type' => 'video'])->take(10)->orderBy('created_at', 'DESC')->get();
 
-        echo view("countries.show", ['country' => $row, 'articles' => $articles, 'blips' => $blips, 'videos' => $videos]);
+        if (auth()->status()) {
+            $user = Auth::user("users", ["password"]);
+            echo view("countries.show", ['user' => $user, 'country' => $row, 'articles' => $articles, 'blips' => $blips, 'videos' => $videos]);
+        } else {
+            echo view("countries.show", ['country' => $row, 'articles' => $articles, 'blips' => $blips, 'videos' => $videos]);
+        }
     }
 
     /**
