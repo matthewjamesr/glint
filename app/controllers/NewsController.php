@@ -172,21 +172,39 @@ class NewsController extends Controller
     {
         $title = str_replace('_', ' ', $title);
         $article = News::where(['country' => 'China', 'type' => 'article', 'title' => $title])->first();
-        echo view('news.show', ['article' => $article]);
+
+        if (auth()->status()) {
+            $user = Auth::user("users", ["password"]);
+            echo view('news.show', ['user' => $user, 'article' => $article]);
+        } else {
+            echo view('news.show', ['article' => $article]);
+        }
     }
 
     public function showDPRK($title)
     {
         $title = str_replace('_', ' ', $title);
         $article = News::where(['country' => 'DPRK', 'type' => 'article', 'title' => $title])->first();
-        echo view('news.show', ['article' => $article]);
+        
+        if (auth()->status()) {
+            $user = Auth::user("users", ["password"]);
+            echo view('news.show', ['user' => $user, 'article' => $article]);
+        } else {
+            echo view('news.show', ['article' => $article]);
+        }
     }
 
     public function showRussia($title)
     {
         $title = str_replace('_', ' ', $title);
         $article = News::where(['country' => 'Russia', 'type' => 'article', 'title' => $title])->first();
-        echo view('news.show', ['article' => $article]);
+        
+        if (auth()->status()) {
+            $user = Auth::user("users", ["password"]);
+            echo view('news.show', ['user' => $user, 'article' => $article]);
+        } else {
+            echo view('news.show', ['article' => $article]);
+        }
     }
 
     /**
