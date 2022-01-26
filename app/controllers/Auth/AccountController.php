@@ -13,7 +13,7 @@ class AccountController extends Controller
         $user = Auth::user("users", ["password"]);
 
         if (!$user) {
-            return Auth::endSession("GUARD_LOGIN");
+            Session::destroy("GUARD_LOGIN");
         }
 
         echo view("pages.auth.account", [
@@ -58,7 +58,7 @@ class AccountController extends Controller
         $user = Auth::update("users", $data, $where, $uniques);
 
         if (!$user) {
-            return view("pages.auth.update", [
+            echo view("pages.auth.update", [
                 "errors" => Auth::errors(),
                 "username" => $data["username"] ?? null,
                 "email" => $data["email"] ?? null,

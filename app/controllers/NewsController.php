@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Models\Country;
 use App\Models\News;
+use Leaf\Auth;
 use Leaf\Form;
 use Leaf\Router;
 use Parsedown;
@@ -31,6 +32,7 @@ class NewsController extends Controller
      */
     public function create()
     {
+        Auth::guard('auth');
         $countries = Country::all();
         echo view('news.create', ['countries' => $countries]);
     }
@@ -50,6 +52,8 @@ class NewsController extends Controller
         // $row = new News;
         // $row->column = requestData("column");
         // $row->delete();
+
+        Auth::guard('auth');
 
         $Parsedown = new Parsedown();
         $data = Form::body();
@@ -189,7 +193,7 @@ class NewsController extends Controller
      */
     public function edit($id)
     {
-        //
+        Auth::guard('auth');
     }
 
     /**
@@ -207,6 +211,8 @@ class NewsController extends Controller
         // $row = News::find($id);
         // $row->column = requestData("column");
         // $row->save();
+
+        Auth::guard('auth');
     }
 
     /**
@@ -223,5 +229,7 @@ class NewsController extends Controller
         */
         // $row = News::find($id);
         // $row->delete();
+
+        Auth::guard('auth');
     }
 }

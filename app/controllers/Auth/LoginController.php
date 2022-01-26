@@ -4,6 +4,8 @@ namespace App\Controllers\Auth;
 
 use App\Models\User;
 use Leaf\Auth;
+use Leaf\Http\Session;
+use Leaf\Router;
 
 class LoginController extends Controller
 {
@@ -18,26 +20,22 @@ class LoginController extends Controller
     {
         Auth::guard("guest");
 
-        list($username, $password) = request()->get(["username", "password"], true, true);
+        $credentials = request(["username", "password"]);
 
         $this->form->validate([
             "username" => "validUsername",
+            "password" => "required"
         ]);
 
-        $user = Auth::login("users", [
-            "username" => $username,
-            "password" => $password
+        $user = Auth::login("users", $credentials, [
+            "username", "password"
         ]);
-
+        
         if (!$user) {
-            return view("pages.auth.login", [
-                "errors" => array_merge(
-                    Auth::errors(),
-                    $this->form->errors()
-                ),
-                "username" => $username,
-                "password" => $password,
-            ]);
+            echo view("pages.auth.login", array_merge(
+                ["errors" => array_merge(Auth::errors(), $this->form->errors())],
+                $credentials
+            ));
         }
     }
 
@@ -45,7 +43,8 @@ class LoginController extends Controller
     {
         Auth::guard("auth");
 
-        Auth::endSession("GUARD_LOGIN");
+        Session::destroy();
+        Router::push("/");
     }
 }
 

@@ -27,7 +27,7 @@
         "leafs/logger": "^1.0",
         "leafs/cors": "^1.0",
         "leafs/router": "^0.1.4",
-        "leafs/auth": "^1.1",
+        "leafs/auth": "^2.0",
         "leafs/form": "^1.0",
         "erusev/parsedown": "^1.7"
     },

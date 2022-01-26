@@ -15,6 +15,7 @@ class RegisterController extends Controller
     
     public function store()
     {
+
         Auth::guard("guest");
 
         $credentials = request(["username", "email", "password"]);
@@ -32,7 +33,7 @@ class RegisterController extends Controller
         ]);
 
         if (!$user) {
-            return view("pages.auth.register", array_merge(
+            echo view("pages.auth.register", array_merge(
                 ["errors" => array_merge(Auth::errors(), $this->form->errors())],
                 $credentials
             ));
