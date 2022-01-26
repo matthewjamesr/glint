@@ -40,6 +40,7 @@
         </div>
     </div>
 	@yield('content')
+    @include('pages.footer')
 </body>
 
 </html>

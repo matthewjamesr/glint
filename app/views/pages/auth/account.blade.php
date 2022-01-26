@@ -10,7 +10,7 @@
     @include('components.topnav')
 
     <div class="w-100 px-5" style="margin-top: 35px;">
-        <h2>Account</h2>
+        <h2>Account:</h2>
         <p>This is the Account page.</p>
         <ul>
             @foreach ($keys as $key)
