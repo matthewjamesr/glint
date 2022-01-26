@@ -3,6 +3,7 @@
 namespace App\Controllers\Auth;
 
 use Leaf\Auth;
+use Leaf\Router;
 
 class AccountController extends Controller
 {
@@ -32,7 +33,7 @@ class AccountController extends Controller
             "user" => Auth::id(),
             "username" => $user["username"] ?? null,
             "email" => $user["email"] ?? null,
-            "name" => $user["name"] ?? null,
+            "fullname" => $user["fullname"] ?? null,
         ]);
     }
 
@@ -42,30 +43,30 @@ class AccountController extends Controller
 
         $userId = Auth::id();
 
-        $data = request()->try(["username", "email", "name"]);
-        $dataKeys = array_keys($data);
+        $credentials = request()->try(["username", "email", "fullname"]);
+        $dataKeys = array_keys($credentials);
 
         $where = ["id" => $userId];
 
         $uniques = ["username", "email"];
 
         foreach ($uniques as $key => $unique) {
-            if (!isset($data[$unique])) {
+            if (!isset($credentials[$unique])) {
                 unset($uniques[$key]);
             }
         }
 
-        $user = Auth::update("users", $data, $where, $uniques);
+        $user = Auth::update("users", $credentials, $uniques);
 
         if (!$user) {
             echo view("pages.auth.update", [
                 "errors" => Auth::errors(),
-                "username" => $data["username"] ?? null,
-                "email" => $data["email"] ?? null,
-                "name" => $data["name"] ?? null,
+                "username" => $credentials["username"] ?? null,
+                "email" => $credentials["email"] ?? null,
+                "fullname" => $credentials["fullname"] ?? null,
             ]);
         }
 
-        response()->redirect("/user");
+        Router::push("/user");
     }
 }

@@ -26,8 +26,8 @@
                 <p>{{ $errors['email'] ?? $errors['auth'] ?? null }}</p>
             </div>
             <div class="form-group">
-                <input class="form-control" type="text" name="name" placeholder="name" value="{{ $name ?? '' }}">
-                <p>{{ $errors['name'] ?? null }}</p>
+                <input class="form-control" type="text" name="fullname" placeholder="name" value="{{ $fullname ?? '' }}">
+                <p>{{ $errors['fullname'] ?? null }}</p>
             </div>
             <button class="btn btn-primary">Update Account</button>
         </form>
