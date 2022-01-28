@@ -30,7 +30,7 @@ class AccountController extends Controller
         $user = Auth::user();
 
         echo view("pages.auth.update", [
-            "user" => Auth::id(),
+            "user" => $user,
             "username" => $user["username"] ?? null,
             "email" => $user["email"] ?? null,
             "fullname" => $user["fullname"] ?? null,
