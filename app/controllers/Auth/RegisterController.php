@@ -20,23 +20,31 @@ class RegisterController extends Controller
 
         $credentials = request(["username", "email", "password"]);
 
-        $this->form->validate([
+        $validation = $this->form->validate([
             "username" => "validUsername",
             "email" => "email",
             "password" => "required"
         ]);
 
-        Auth::config("SESSION_ON_REGISTER", true);
-
-        $user = Auth::register("users", $credentials, [
-            "username", "email"
-        ]);
-
-        if (!$user) {
+        if (!$validation) {
+            // validation errors will be found in form->errors
             echo view("pages.auth.register", array_merge(
                 ["errors" => array_merge(Auth::errors(), $this->form->errors())],
                 $credentials
             ));
+        } else {
+            Auth::config("SESSION_ON_REGISTER", true);
+
+            $user = Auth::register("users", $credentials, [
+                "username", "email"
+            ]);
+    
+            if (!$user) {
+                echo view("pages.auth.register", array_merge(
+                    ["errors" => array_merge(Auth::errors(), $this->form->errors())],
+                    $credentials
+                ));
+            }
         }
     }
 }
