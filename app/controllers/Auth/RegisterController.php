@@ -19,6 +19,7 @@ class RegisterController extends Controller
         Auth::guard("guest");
 
         $credentials = request(["username", "email", "password"]);
+        $credentials["verify_code"] = substr(md5(uniqid(rand(), true)), 16, 16);
 
         $validation = $this->form->validate([
             "username" => "validUsername",
