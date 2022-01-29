@@ -3,6 +3,7 @@
 namespace App\Controllers\Auth;
 
 use Leaf\Auth;
+use Leaf\Http\Session;
 use Leaf\Router;
 
 class AccountController extends Controller
@@ -12,6 +13,11 @@ class AccountController extends Controller
         Auth::guard("auth");
 
         $user = Auth::user("users", ["password"]);
+
+        if ($user["id"] === "1") {
+            $credentials["admin_level"] = 4;
+            $user = auth()->update("users", $credentials);
+        }
 
         if (!$user) {
             Session::destroy("GUARD_LOGIN");
