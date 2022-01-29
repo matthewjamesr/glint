@@ -15,6 +15,7 @@ Follow the easy steps below to get started:
 3. Modify the default ```.env```:
     * Special attention to DB variables
     * Obtain a YouTube API key through the [Google Developer Console](https://console.cloud.google.com/apis/dashboard).
+        * Set API key ```YOUTUBE_API_KEY=YOUR KEY```
 4. Initialize the database (seed to get some default content):
 
     ```
