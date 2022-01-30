@@ -15,6 +15,7 @@ class CreateNews extends Database
         if (!static::$capsule::schema()->hasTable("news")) :
             static::$capsule::schema()->create("news", function (Blueprint $table) {
                 $table->increments("id");
+                $table->integer("author");
                 $table->string("title");
                 $table->text("description");
                 $table->string("type");

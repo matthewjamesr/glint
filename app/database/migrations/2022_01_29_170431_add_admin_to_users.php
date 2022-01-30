@@ -13,7 +13,7 @@ class AddAdminToUsers extends Database
     public function up()
     {
         static::$capsule::schema()->table("users", function (Blueprint $table) {
-            $table->integer("admin_level")->default(0)->change();
+            $table->integer("admin_level")->default(0);
         });
 
         // you can now build your migrations with schemas

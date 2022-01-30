@@ -32,4 +32,6 @@ app()->resource('news', 'NewsController');
 app()->group("/dashboard", function () {
     app()->get("/", "AdminsController@dashboard");
     app()->get("/account", "AdminsController@account");
+    app()->get("/content", "AdminsController@contentShow");
+    app()->post("/content", "AdminsController@contentStore");
 });

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\News;
 use Leaf\Auth;
 use Leaf\Flash;
 use Leaf\Router;
@@ -34,6 +35,18 @@ class AdminsController extends Controller
         echo view("pages.admin.account", [
             "user" => $user,
             "keys" => array_keys($user)
+        ]);
+    }
+
+    public function contentShow() {
+        Auth::guard("auth");
+
+        $user = Auth::user("users", ["password"]);
+        $content = News::all();
+
+        echo view("pages.admin.content", [
+            "user" => $user,
+            "content" => $content
         ]);
     }
 }

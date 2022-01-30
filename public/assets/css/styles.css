@@ -523,3 +523,64 @@ p {
     font-size: 16pt !important;
     color: rgb(255, 252, 45);
 }
+
+/* Dashboard-related styling */
+
+.content-item {
+    position: relative;
+    padding: 15px;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.content-item:hover {
+    background-color: rgb(34, 37, 41);
+}
+
+.content-item span.view {
+    color: rgb(243, 219, 0);
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.content-item:not(:hover) span.view {
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.content-item p {
+    margin-bottom: 0px;
+}
+
+.content-item .metadata {
+    padding: 0px;
+    margin: 5px 0px 0px 0px;
+}
+
+.add-content {
+    padding: 10px 15px 10px 15px;
+    color: #0d6efd;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.add-content:hover {
+    background: rgb(34, 37, 41);
+    color: #0d6efd
+}
+
+.content-item .metadata .title {
+    padding: 0px;
+    margin-right: 10px;
+    font-weight: 600;
+}
+
+.content-item .metadata li {
+    display: inline;
+    margin: 5px 25px 0px 0px;
+    list-style-type: none;
+}
+
+.content-item .metadata li i {
+    margin-right: 10px;
+}

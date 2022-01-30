@@ -9,7 +9,7 @@
             <div class="border" style="border: 0px !important;">
                 <div class="row account text-start">
                     <div class="col-12">
-                        <h2>Account</h2>
+                        <h2 style="font-weight: 900;">Account</h2>
                         <p>Review your profile information</p>
                         <ul>
                             @foreach ($keys as $key)

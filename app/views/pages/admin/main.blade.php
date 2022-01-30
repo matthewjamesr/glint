@@ -29,8 +29,8 @@
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item"><a href="/dashboard" class="nav-link <?php echo isActive("dashboard") ?>">Dashboard</a></li>
-                        <li class="nav-item"><a href="/dashboard/content" class="nav-link">Content</a></li>
-                        <li class="nav-item"><a href="/dashboard/settings" class="nav-link">Settings</a></li>
+                        <li class="nav-item"><a href="/dashboard/content" class="nav-link <?php echo isActive("content") ?>">Content</a></li>
+                        <li class="nav-item"><a href="/dashboard/settings" class="nav-link <?php echo isActive("settings") ?>">Settings</a></li>
                     </ul>
                     <ul class="navbar-nav d-flex">
                         <li class="nav-item"><a href="/dashboard/account" class="nav-link <?php echo isActive("account") ?>">Account</a></li>

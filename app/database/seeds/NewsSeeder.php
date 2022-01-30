@@ -15,6 +15,7 @@ class NewsSeeder extends Seeder
     public function run()
     {
         $news = new News();
+        $news->author = 1;
         $news->title = "Big Trouble in Little China";
         $news->description = "This was a test";
         $news->type = "article";
@@ -32,6 +33,7 @@ class NewsSeeder extends Seeder
         $news->save();
 
         $news = new News();
+        $news->author = 1;
         $news->title = "China Uncensored";
         $news->description = "The Greatest Threat to Taiwan Isn’t Chinese Warships...";
         $news->type = "video";
@@ -48,6 +50,7 @@ class NewsSeeder extends Seeder
 
 
         $news = new News();
+        $news->author = 1;
         $news->title = "KJU Throws a Family Reunion";
         $news->description = "Artillery's someone in the chest";
         $news->type = "article";
@@ -65,6 +68,7 @@ class NewsSeeder extends Seeder
         $news->save();
 
         $news = new News();
+        $news->author = 1;
         $news->title = "Putin Continues to Vamp";
         $news->description = "This was a test";
         $news->type = "article";
