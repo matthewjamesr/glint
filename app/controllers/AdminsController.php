@@ -24,4 +24,16 @@ class AdminsController extends Controller
             Router::push("/");
         }
     }
+
+    public function account()
+    {
+        Auth::guard("auth");
+
+        $user = Auth::user("users", ["password"]);
+
+        echo view("pages.admin.account", [
+            "user" => $user,
+            "keys" => array_keys($user)
+        ]);
+    }
 }
