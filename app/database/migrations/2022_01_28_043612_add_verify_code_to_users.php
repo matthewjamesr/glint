@@ -13,7 +13,7 @@ class AddVerifyCodeToUsers extends Database
     public function up()
     {
         static::$capsule::schema()->table("users", function (Blueprint $table) {
-            $table->string("verify_code");
+            $table->string("verify_code")->change();
         });
 
         // you can now build your migrations with schemas
