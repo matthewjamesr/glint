@@ -48,6 +48,7 @@
                             <ul class="metadata">
                                 <li><i class="fas fa-user"></i> {{ App\Models\User::where(['id' => $content["author"]])->pluck("fullname")->first() }} </li>
                                 <li><i class="fas fa-calendar-day"></i> {{ html_entity_decode($content->created_at->format('Y-m-d'), ENT_QUOTES) }}</li>
+                                <li><i class="fas fa-filter"></i> {{ $content->type }}</li>
                             </ul>
                             <!--<span class="view d-none d-sm-none d-md-block float-end">View details</span>-->
                         </div>

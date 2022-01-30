@@ -42,7 +42,7 @@ class AdminsController extends Controller
         Auth::guard("auth");
 
         $user = Auth::user("users", ["password"]);
-        $content = News::all();
+        $content = News::orderBy('created_at', 'DESC')->get();
 
         echo view("pages.admin.content", [
             "user" => $user,

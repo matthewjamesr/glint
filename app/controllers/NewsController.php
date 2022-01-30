@@ -93,6 +93,7 @@ class NewsController extends Controller
                 $row->country = $data['country'];
                 $row->markdown = $data['markdown'];
                 $row->processed_html = $Parsedown->text($data['markdown']);
+                $row->author = auth()->id();
                 $row->save();
                 Router::push('/'.strtolower($data['country']).'/'.str_replace(' ', '_', $data['title']));
             }
@@ -159,6 +160,7 @@ class NewsController extends Controller
                 $youtubeVals = json_decode(json_encode($youtubeData), true);
 
                 $row->title = $youtubeVals['items'][0]['snippet']['title'];
+                $row->author = auth()->id();
                 $row->save();
                 Router::push('/'.strtolower($data['country']));
             }
