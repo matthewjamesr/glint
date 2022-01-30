@@ -5,7 +5,33 @@
 @section('content')
 <div class="container welcome-page countries">
     <div class="row list justify-content-md-center gy-4">
-        <div class="col-12 blips">
+        <div class="col-sm-12 col-md-4 blips">
+            <div class="border" style="border: 0px !important;">
+                <div class="row account text-start">
+                    <div class="col-12 stats">
+                        <h3 class="text-center">Statistics</h3>
+                        <div class="row gy-4" style="margin-top: 0px;">
+                            @if ($articleCount == 0 && $videoCount == 0 && $blipCount == 0)
+                                <div class="col-sm-12 text-center">
+                                    <h4><i class="fas fa-info-circle"></i> No content</h4>
+                                </div>
+                            @endif
+                            @if ($articleCount != 0)
+                                <div class="col-sm-12 col-md-6 text-center">
+                                    <h4><i class="far fa-newspaper"></i> {{ $articleCount }}</h4>
+                                </div>
+                            @endif
+                            @if ($videoCount != 0)
+                                <div class="col-sm-12 col-md-6 text-center">
+                                    <h4><i class="fab fa-youtube"></i> {{ $videoCount }}</h4>
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-8 blips">
             <div class="border" style="border: 0px !important;">
                 <div class="row account text-start">
                     <div class="col-12">

@@ -46,7 +46,10 @@ class AdminsController extends Controller
 
         echo view("pages.admin.content", [
             "user" => $user,
-            "content" => $content
+            "content" => $content,
+            "articleCount" => News::where(["type" => "article"])->count(),
+            "videoCount" =>  News::where(["type" => "video"])->count(),
+            "blipCount" =>  News::where(["type" => "blip"])->count()
         ]);
     }
 }

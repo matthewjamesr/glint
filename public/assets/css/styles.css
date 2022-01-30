@@ -360,7 +360,7 @@ p {
     margin-top: 15px;
 }
 
-.news, .account {
+.news {
     max-width: 750px;
     margin: 0px auto;
     padding: 25px 0px 0px 0px;
@@ -583,4 +583,27 @@ p {
 
 .content-item .metadata li i {
     margin-right: 10px;
+}
+
+.stats {
+    padding: 25px 25px 25px 25px;
+    background: rgb(34, 37, 41);
+    border-radius: 10px;
+}
+
+.stats i.fa-youtube {
+    margin: -1px 12px 0px 0px;
+    font-size: 16pt !important;
+    color: #FF0000;
+}
+
+.stats i.fa-newspaper {
+    margin: -1px 12px 0px 0px;
+    font-size: 16pt !important;
+    color: rgb(255, 252, 45);
+}
+
+.stats i.fa-info-circle {
+    margin: -1px 12px 0px 0px;
+    font-size: 16pt !important;
 }
