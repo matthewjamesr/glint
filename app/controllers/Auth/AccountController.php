@@ -23,10 +23,16 @@ class AccountController extends Controller
             Session::destroy("GUARD_LOGIN");
         }
 
-        echo view("pages.auth.account", [
-            "user" => $user,
-            "keys" => array_keys($user),
-        ]);
+        if ($user["admin_level"] >= 1) {
+            echo view("pages.admin.dashboard", [
+                "user" => $user
+            ]);
+        } else {
+            echo view("pages.account.view", [
+                "user" => $user,
+                "keys" => array_keys($user),
+            ]);
+        }
     }
 
     public function show_update()
@@ -35,7 +41,7 @@ class AccountController extends Controller
 
         $user = Auth::user();
 
-        echo view("pages.auth.update", [
+        echo view("pages.account.update", [
             "user" => $user,
             "username" => $user["username"] ?? null,
             "email" => $user["email"] ?? null,

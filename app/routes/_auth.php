@@ -16,3 +16,7 @@ app()->group("/user", function () {
     app()->get("/update", "Auth\AccountController@show_update");
     app()->post("/update", "Auth\AccountController@update");
 });
+
+app()->group("/dashboard", function () {
+    app()->get("/", "Auth\AccountController@user");
+});
