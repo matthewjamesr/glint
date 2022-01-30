@@ -5,7 +5,7 @@
 @section('content')
     <div class="container welcome-page countries">
         <div class="row list justify-content-md-center gy-4">
-            <div class="col-12 blips">
+            <div class="col-sm-12 col-md-6 blips">
                 <div class="border" style="border: 0px !important;">
                     <div class="row account text-start">
                         <div class="col-12">
