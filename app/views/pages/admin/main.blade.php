@@ -28,12 +28,12 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav me-auto">
-                        <li class="nav-item"><a href="/dashboard" class="nav-link active">Dashboard</a></li>
+                        <li class="nav-item"><a href="/dashboard" class="nav-link <?php echo isActive("dashboard") ?>">Dashboard</a></li>
                         <li class="nav-item"><a href="/dashboard/content" class="nav-link">Content</a></li>
                         <li class="nav-item"><a href="/dashboard/settings" class="nav-link">Settings</a></li>
                     </ul>
                     <ul class="navbar-nav d-flex">
-                        <li class="nav-item"><a href="/dashboard/account" class="nav-link">Account</a></li>
+                        <li class="nav-item"><a href="/dashboard/account" class="nav-link <?php echo isActive("account") ?>">Account</a></li>
                         <li class="nav-item"><a href="/auth/logout" class="btn btn-primary" id="logout">Logout</a></li>
                     </ul>
                 </div>
@@ -42,3 +42,13 @@
         @yield('content')
     </body>
 </html>
+
+<?php
+function isActive($requestUri)
+{
+    $current_file_name = basename($_SERVER['REQUEST_URI']);
+
+    if ($current_file_name == $requestUri)
+        echo 'active';
+}
+?>
