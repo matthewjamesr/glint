@@ -19,7 +19,7 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     </head>
 
-    <body style="background: #263238;">
+    <body id="adminDashboard">
         <nav class="navbar navbar-dark bg-dark navbar-expand-md">
             <div class="container">
                 <a href="/" class="navbar-brand">Glint</a>
@@ -30,10 +30,11 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item"><a href="/dashboard" class="nav-link active">Dashboard</a></li>
                         <li class="nav-item"><a href="/dashboard/content" class="nav-link">Content</a></li>
-                        <li class="nav-item"><a href="/dashboard/account" class="nav-link">Account</a></li>
+                        <li class="nav-item"><a href="/dashboard/settings" class="nav-link">Settings</a></li>
                     </ul>
                     <ul class="navbar-nav d-flex">
-                        <li class="nav-item"><a href="/auth/logout" class="btn btn-primary">Logout</a></li>
+                        <li class="nav-item"><a href="/dashboard/account" class="nav-link">Account</a></li>
+                        <li class="nav-item"><a href="/auth/logout" class="btn btn-primary" id="logout">Logout</a></li>
                     </ul>
                 </div>
             </div>
