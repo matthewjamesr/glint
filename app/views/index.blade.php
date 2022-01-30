@@ -38,6 +38,9 @@
                 </ul>
             </div>
         </div>
+        <div class="row alert-container">
+            @include('components.alert')
+        </div>
     </div>
 	@yield('content')
     @include('pages.footer')

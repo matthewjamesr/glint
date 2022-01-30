@@ -28,3 +28,7 @@ app()->group('/russia', function () {
 });
 
 app()->resource('news', 'NewsController');
+
+app()->group("/dashboard", function () {
+    app()->get("/", "AdminsController@dashboard");
+});

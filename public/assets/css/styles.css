@@ -4,6 +4,14 @@ body {
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
 }
+
+body#adminDashboard {
+    background-color: rgb(25, 28, 31);
+    color: white;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+}
+
 h1 {
     margin: 0px;
     font-size: 28px;
@@ -122,6 +130,17 @@ i.fa-reddit {
     padding: 2px;
 }
 
+.alert-container {
+    margin: 30px auto -30px auto;
+    padding-left: 0px;
+    padding-right: 0px;
+    width: fit-content;
+}
+
+.alert-container .alert strong {
+    margin-right: 5px;
+}
+
 .navbar .navbar-nav .nav-item .nav-link {
     letter-spacing: 0.5px;
     margin: 0px 10px 0px 10px;
@@ -133,6 +152,10 @@ i.fa-reddit {
     font-weight: 600;
     border-bottom: 1px solid rgb(243, 219, 0);
     max-width: fit-content;
+}
+
+.navbar .navbar-nav #logout {
+    margin-left: 10px;
 }
 
 .welcome-page {
