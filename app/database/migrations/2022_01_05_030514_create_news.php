@@ -23,6 +23,7 @@ class CreateNews extends Database
                 $table->text("markdown")->nullable();
                 $table->text("processed_html")->nullable();
                 $table->text("video_url")->nullable();
+                $table->boolean("published")->default(0);
                 $table->timestamps();
             });
         endif;
