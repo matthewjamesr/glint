@@ -42,6 +42,14 @@ $(document).ready(function () {
             $('#form-editor-input').show();
         }
     });
+
+    $('.add-content').click(function () {
+        $('.add-content-type').css('opacity', '1');
+
+        $('.add-content-type').mouseleave(function () {
+            $('.add-content-type').css('opacity', '0');
+        })
+    })
 })
 
 const editor = new Editor({

@@ -558,15 +558,48 @@ p {
 }
 
 .add-content {
+    margin-right: -10px;
     padding: 10px 15px 10px 15px;
     color: #0d6efd;
     border-radius: 10px;
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .add-content:hover {
     background: rgb(34, 37, 41);
-    color: #0d6efd
+}
+
+.add-content-type {
+    z-index: +1;
+    opacity: 0;
+    position: absolute;
+    top: 50px;
+    right: 3px;
+    background: rgb(34, 37, 41);
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.add-content-type div {
+    padding: 20px 25px 20px 25px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+}
+
+.add-content-type div:hover {
+    background: rgb(49, 53, 56);
+}
+
+.add-content-type h6 {
+    margin: 0px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    text-align: right;
+}
+
+.add-content-type i {
+    margin-right: 35px;
 }
 
 .content-item .metadata .title {

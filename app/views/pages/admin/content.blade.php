@@ -36,7 +36,24 @@
                 <div class="row account text-start">
                     <div class="col-12">
                         <h2 class="float-start" style="font-weight: 900;">All content</h2>
-                        <h2 class="float-end"><a class="add-content" href="/dashboard/content/new"><i class="fas fa-plus"></i></a></h2>
+                        <h2 class="float-end"><buttun class="add-content"><i class="fas fa-plus"></i></button></h2>
+                        <div class="add-content-type">
+                            <a href="/dashboard/content/new?type=article">
+                                <div>
+                                    <h6><i class="far fa-newspaper float-start"></i> Article</h6>
+                                </div>
+                            </a>
+                            <a href="/dashboard/content/new?type=video">
+                                <div>
+                                    <h6><i class="fab fa-youtube float-start"></i> Video</h6>
+                                </div>
+                            </a>
+                            <a href="/dashboard/content/new?type=blip">
+                                <div>
+                                    <h6><i class="fas fa-bullhorn float-start"></i> Blip</h6>
+                                </div>
+                            </a>
+                        </div>
                         <p style="clear: both;">Review all draft and published content</p>
                     </div>
                 </div>
