@@ -47,7 +47,7 @@
                                 <li><a class="dropdown-item" href="/dashboard/content/new?type=blip"><i class="fas fa-bullhorn float-start"></i> Blip</a></li>
                             </ul>
                         </div>
-                        <div class="add-content-type">
+                        <div class="add-content-type d-none d-sm-none d-md-block">
                             <a href="/dashboard/content/new?type=article">
                                 <div>
                                     <h6><i class="far fa-newspaper float-start"></i> Article</h6>
