@@ -33,6 +33,6 @@ app()->group("/dashboard", function () {
     app()->get("/", "AdminsController@dashboard");
     app()->get("/account", "AdminsController@account");
     app()->get("/content", "AdminsController@contentShow");
+    app()->get("/content/new", "AdminsController@contentCreate");
     app()->post("/content", "AdminsController@contentStore");
-    app()->get("/content/new", "AdminsController@addContent");
 });

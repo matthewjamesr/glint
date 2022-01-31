@@ -72,7 +72,11 @@
                         <div class="col-12 content-item">
                             @if ($content->type != "video")
                                 <a href="/{{ strtolower($content['country']) }}/{{ str_replace(' ', '_', $content['title']) }}">
-                                    <h3>{{ $content["title"] }}</h3>
+                                    @if ($content->published)
+                                        <h3>{{ $content["title"] }}<i class="fas fa-book-reader float-end published" data-bs-toggle="tooltip" data-bs-placement="left" title="Published"></i></h3>
+                                    @else
+                                        <h3>{{ $content["title"] }}<i class="fas fa-book-reader float-end draft" data-bs-toggle="tooltip" data-bs-placement="left" title="Draft"></i></h3>
+                                    @endif
                                     <p>{{ $content["description"] }}</p>
                                     <ul class="metadata">
                                         <li><i class="fas fa-user"></i> {{ App\Models\User::where(['id' => $content["author"]])->pluck("fullname")->first() }} </li>
@@ -82,7 +86,11 @@
                                 </a>
                             @else
                                 <a href="{{ $content['video_url'] }}" target="_blank">
-                                    <h3>{{ $content["title"] }}</h3>
+                                    @if ($content->published)
+                                        <h3>{{ $content["title"] }}<i class="fas fa-book-reader float-end published" data-bs-toggle="tooltip" data-bs-placement="left" title="Published"></i></h3>
+                                    @else
+                                        <h3>{{ $content["title"] }}<i class="fas fa-book-reader float-end draft" data-bs-toggle="tooltip" data-bs-placement="left" title="Draft"></i></h3>
+                                    @endif
                                     <p>{{ $content["description"] }}</p>
                                     <ul class="metadata">
                                         <li><i class="fas fa-user"></i> {{ App\Models\User::where(['id' => $content["author"]])->pluck("fullname")->first() }} </li>

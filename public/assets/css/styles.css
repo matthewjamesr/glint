@@ -527,6 +527,7 @@ p {
 /* Dashboard-related styling */
 
 .content-item {
+    z-index: 1;
     position: relative;
     padding: 15px;
     border-radius: 10px;
@@ -571,7 +572,8 @@ p {
 }
 
 .add-content-type {
-    z-index: +1;
+    z-index: 2;
+    display: none !important;
     opacity: 0;
     position: absolute;
     top: 50px;
@@ -606,6 +608,10 @@ p {
     margin-right: 35px;
 }
 
+.draft {
+    color: rgb(75, 75, 75);
+}
+
 .content-item .metadata .title {
     padding: 0px;
     margin-right: 10px;
@@ -618,7 +624,7 @@ p {
     list-style-type: none;
 }
 
-.content-item .metadata li i {
+.content-item i {
     margin-right: 10px;
 }
 

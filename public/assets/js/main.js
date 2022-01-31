@@ -2,6 +2,8 @@ const Editor = toastui.Editor;
 
 $(document).ready(function () {
 
+    $("body").tooltip({ selector: '[data-bs-toggle=tooltip]' });
+
     $("#glintChina").click(function () {
         window.location.href = "/china"
     })
@@ -44,10 +46,14 @@ $(document).ready(function () {
     });
 
     $('.add-content').click(function () {
+        $('.add-content-type').attr('style', 'display: block !important')
         $('.add-content-type').css('opacity', '1');
 
         $('.add-content-type').mouseleave(function () {
             $('.add-content-type').css('opacity', '0');
+            setTimeout(function () {
+                $('.add-content-type').hide();
+            }, 500)
         })
     })
 })

@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Models\Country;
 use App\Models\News;
 use Leaf\Auth;
 use Leaf\Flash;
@@ -44,12 +45,24 @@ class AdminsController extends Controller
         $user = Auth::user("users", ["password"]);
         $content = News::orderBy('created_at', 'DESC')->get();
 
-        echo view("pages.admin.content", [
+        echo view("pages.admin.content.all", [
             "user" => $user,
             "content" => $content,
             "articleCount" => News::where(["type" => "article"])->count(),
             "videoCount" =>  News::where(["type" => "video"])->count(),
             "blipCount" =>  News::where(["type" => "blip"])->count()
         ]);
+    }
+
+    public function contentCreate () {
+        $type = request("type");
+
+        echo view("pages.admin.content.add", [
+            "countries" => Country::all(),
+            "type" => $type
+        ]);
+    }
+
+    public function contentStore () {
     }
 }
