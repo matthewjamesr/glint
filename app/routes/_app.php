@@ -34,4 +34,5 @@ app()->group("/dashboard", function () {
     app()->get("/account", "AdminsController@account");
     app()->get("/content", "AdminsController@contentShow");
     app()->post("/content", "AdminsController@contentStore");
+    app()->get("/content/new", "AdminsController@addContent");
 });
