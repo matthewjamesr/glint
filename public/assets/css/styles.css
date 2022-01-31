@@ -602,6 +602,10 @@ p {
     margin-right: 35px;
 }
 
+.dropdown-item i {
+    margin-right: 35px;
+}
+
 .content-item .metadata .title {
     padding: 0px;
     margin-right: 10px;

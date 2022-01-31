@@ -36,7 +36,17 @@
                 <div class="row account text-start">
                     <div class="col-12">
                         <h2 class="float-start" style="font-weight: 900;">All content</h2>
-                        <h2 class="float-end"><buttun class="add-content"><i class="fas fa-plus"></i></button></h2>
+                        <h2 class="float-end d-none d-sm-none d-md-block"><buttun class="add-content"><i class="fas fa-plus"></i></button></h2>
+                        <div class="btn-group d-block d-md-none float-end" style="margin-bottom: 10px;">
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                                Add content
+                            </button>
+                            <ul class="dropdown-menu dropdown-menu-dark dropdown-menu-end">
+                                <li><a class="dropdown-item" href="/dashboard/content/new?type=article"><i class="far fa-newspaper float-start"></i> Article</a></li>
+                                <li><a class="dropdown-item" href="/dashboard/content/new?type=video"><i class="fab fa-youtube float-start"></i> Video</a></li>
+                                <li><a class="dropdown-item" href="/dashboard/content/new?type=blip"><i class="fas fa-bullhorn float-start"></i> Blip</a></li>
+                            </ul>
+                        </div>
                         <div class="add-content-type">
                             <a href="/dashboard/content/new?type=article">
                                 <div>
@@ -54,7 +64,7 @@
                                 </div>
                             </a>
                         </div>
-                        <p style="clear: both;">Review all draft and published content</p>
+                        <p style="clear: both; line-break: break-word;">Review all draft and published content</p>
                     </div>
                 </div>
                 <div class="row account text-start">
