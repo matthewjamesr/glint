@@ -191,7 +191,7 @@ class AdminsController extends Controller
 
                 $row->title = $youtubeVals['items'][0]['snippet']['title'];
                 $row->author = auth()->id();
-                if ($command == 'publish') {
+                if ($data['command'] == 'publish') {
                     $row->published = true;
                 }
                 $row->save();
