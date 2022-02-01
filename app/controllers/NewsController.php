@@ -161,6 +161,7 @@ class NewsController extends Controller
 
                 $row->title = $youtubeVals['items'][0]['snippet']['title'];
                 $row->author = auth()->id();
+                $row->published = true;
                 $row->save();
                 Router::push('/'.strtolower($data['country']));
             }
