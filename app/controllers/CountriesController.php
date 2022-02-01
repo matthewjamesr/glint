@@ -56,9 +56,9 @@ class CountriesController extends Controller
         $country = Country::where('country', $name)->first();
         $row = Country::find($country["id"]);
 
-        $articles = News::where(['country' => $name, 'type' => 'article'])->take(10)->orderBy('created_at', 'DESC')->get();
-        $blips = News::where(['country' => $name, 'type' => 'blip'])->take(10)->orderBy('created_at', 'DESC')->get();
-        $videos = News::where(['country' => $name, 'type' => 'video'])->take(10)->orderBy('created_at', 'DESC')->get();
+        $articles = News::where(['country' => $name, 'type' => 'article', 'published' => true])->take(10)->orderBy('created_at', 'DESC')->get();
+        $blips = News::where(['country' => $name, 'type' => 'blip', 'published' => true])->take(10)->orderBy('created_at', 'DESC')->get();
+        $videos = News::where(['country' => $name, 'type' => 'video', 'published' => true])->take(10)->orderBy('created_at', 'DESC')->get();
 
         if (auth()->status()) {
             $user = Auth::user("users", ["password"]);
@@ -74,9 +74,9 @@ class CountriesController extends Controller
         $country = Country::where('country', $name)->first();
         $row = Country::find($country["id"]);
 
-        $articles = News::where(['country' => $name, 'type' => 'article'])->take(10)->orderBy('created_at', 'DESC')->get();
-        $blips = News::where(['country' => $name, 'type' => 'blip'])->take(10)->orderBy('created_at', 'DESC')->get();
-        $videos = News::where(['country' => $name, 'type' => 'video'])->take(10)->orderBy('created_at', 'DESC')->get();
+        $articles = News::where(['country' => $name, 'type' => 'article', 'published' => true])->take(10)->orderBy('created_at', 'DESC')->get();
+        $blips = News::where(['country' => $name, 'type' => 'blip', 'published' => true])->take(10)->orderBy('created_at', 'DESC')->get();
+        $videos = News::where(['country' => $name, 'type' => 'video', 'published' => true])->take(10)->orderBy('created_at', 'DESC')->get();
 
         if (auth()->status()) {
             $user = Auth::user("users", ["password"]);
@@ -92,9 +92,9 @@ class CountriesController extends Controller
         $country = Country::where('country', $name)->first();
         $row = Country::find($country["id"]);
 
-        $articles = News::where(['country' => $name, 'type' => 'article'])->take(10)->orderBy('created_at', 'DESC')->get();
-        $blips = News::where(['country' => $name, 'type' => 'blip'])->take(10)->orderBy('created_at', 'DESC')->get();
-        $videos = News::where(['country' => $name, 'type' => 'video'])->take(10)->orderBy('created_at', 'DESC')->get();
+        $articles = News::where(['country' => $name, 'type' => 'article', 'published' => true])->take(10)->orderBy('created_at', 'DESC')->get();
+        $blips = News::where(['country' => $name, 'type' => 'blip', 'published' => true])->take(10)->orderBy('created_at', 'DESC')->get();
+        $videos = News::where(['country' => $name, 'type' => 'video', 'published' => true])->take(10)->orderBy('created_at', 'DESC')->get();
 
         if (auth()->status()) {
             $user = Auth::user("users", ["password"]);
