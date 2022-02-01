@@ -16,7 +16,7 @@ class PagesController extends Controller
 
         if (auth()->status()) {
             $user = Auth::user("users", ["password"]);
-            $news = News::limit(9)->orderBy('created_at', 'DESC')->get();
+            $news = News::where(['published' => true])->take(9)->orderBy('created_at', 'DESC')->get();
             echo view("pages.welcome", ['user' => $user, 'news' => $news, "alert" => $flashAlert, "alertType" => $flashAlertType]);
         } else {
             $news = News::limit(9)->orderBy('created_at', 'DESC')->get();

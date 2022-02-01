@@ -34,6 +34,7 @@
                 <div class="row account text-start">
                     <form id="editorForm" action="/dashboard/content/new" method="POST">
                         <input type="hidden" name="type" id="type" value="{{ $type }}" />
+                        <input type="hidden" name="command" id="command" />
                         <div class="row">
                             @if (isset($alert))
                                 <div class="col-12">@include('components.alert', ['alert' => $alert, 'alertType' => $alertType])</div>
@@ -71,9 +72,9 @@
                                 </div>
                             @endif
                         </div>
-                        <button type="submit" class="btn btn-primary float-end" name="command" value="publish">Publish</button>
-                        <button type="submit" class="btn btn-secondary float-end" name="command" value="save">Save</button>
                     </form>
+                    <button id="publish" class="btn btn-primary float-end">Publish</button>
+                    <button id="save" class="btn btn-secondary float-end">Save</button>
                 </div>
             </div>
         </div>

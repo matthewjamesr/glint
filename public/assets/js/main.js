@@ -67,8 +67,14 @@ const editor = new Editor({
 
 editor.setMarkdown(document.querySelector('#markdown').value);
 
-document.querySelector('#editorForm').addEventListener('submit', e => {
-    e.preventDefault();
+document.querySelector('#save').addEventListener('click', e => {
+    document.querySelector('#command').value = "save";
     document.querySelector('#markdown').value = editor.getMarkdown();
-    e.target.submit();
-})
+    document.querySelector('#editorForm').submit();
+});
+
+document.querySelector('#publish').addEventListener('click', e => {
+    document.querySelector('#command').value = "publish";
+    document.querySelector('#markdown').value = editor.getMarkdown();
+    document.querySelector('#editorForm').submit();
+});
