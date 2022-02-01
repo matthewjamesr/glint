@@ -1,7 +1,6 @@
 const Editor = toastui.Editor;
 
 $(document).ready(function () {
-
     $("body").tooltip({ selector: '[data-bs-toggle=tooltip]' });
 
     $("#glintChina").click(function () {
@@ -56,25 +55,26 @@ $(document).ready(function () {
             }, 500)
         })
     })
-})
 
-const editor = new Editor({
-    el: document.querySelector('#editor'),
-    height: '500px',
-    initialEditType: 'markdown',
-    previewStyle: 'vertical'
-})
+    const editor = new Editor({
+        el: document.querySelector('#editor'),
+        height: '500px',
+        initialEditType: 'markdown',
+        previewStyle: 'vertical'
+    });
+    
+    editor.setMarkdown(document.querySelector('#markdown').value);
 
-editor.setMarkdown(document.querySelector('#markdown').value);
-
-document.querySelector('#save').addEventListener('click', e => {
-    document.querySelector('#command').value = "save";
-    document.querySelector('#markdown').value = editor.getMarkdown();
-    document.querySelector('#editorForm').submit();
-});
-
-document.querySelector('#publish').addEventListener('click', e => {
-    document.querySelector('#command').value = "publish";
-    document.querySelector('#markdown').value = editor.getMarkdown();
-    document.querySelector('#editorForm').submit();
+    document.querySelector('#save').addEventListener('click', e => {
+        document.querySelector('#command').value = "save";
+        document.querySelector('#markdown').value = editor.getMarkdown();
+        document.querySelector('#editorForm').submit();
+    });
+    
+    document.querySelector('#publish').addEventListener('click', e => {
+        alert('fff');
+        document.querySelector('#command').value = "publish";
+        document.querySelector('#markdown').value = editor.getMarkdown();
+        document.querySelector('#editorForm').submit();
+    });
 });

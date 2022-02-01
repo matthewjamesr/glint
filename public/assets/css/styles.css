@@ -555,6 +555,10 @@ p {
     border-radius: 3px !important;
 }
 
+.editor-form-actions {
+    z-index: +2;
+}
+
 #editorForm select, #editorForm input {
     background-color: rgb(34, 37, 41);
     color: #fff;

@@ -69,12 +69,16 @@
                                     <label for="video_url" class="form-label is-valid">Video URL</label>
                                     <input type="text" class="form-control" id="video_url" name="video_url" aria-describedby="videoHelp" autocomplete="off">
                                     <div id="videoHelp" class="form-text">Paste URL to video</div>
+                                    <div class="float-start" id="editor" style="opacity: 0; max-height: 0px !important;"></div>
+                                    <input type="hidden" name="markdown" id="markdown" value="{{ $data['markdown'] ?? '' }}">
                                 </div>
                             @endif
                         </div>
                     </form>
-                    <button id="publish" class="btn btn-primary float-end">Publish</button>
-                    <button id="save" class="btn btn-secondary float-end">Save</button>
+                    <div class="editor-form-actions">
+                        <button id="publish" class="btn btn-primary float-end">Publish</button>
+                        <button id="save" class="btn btn-secondary float-end">Save</button>
+                    </div>
                 </div>
             </div>
         </div>
