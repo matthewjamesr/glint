@@ -72,7 +72,6 @@ $(document).ready(function () {
     });
     
     document.querySelector('#publish').addEventListener('click', e => {
-        alert('fff');
         document.querySelector('#command').value = "publish";
         document.querySelector('#markdown').value = editor.getMarkdown();
         document.querySelector('#editorForm').submit();
