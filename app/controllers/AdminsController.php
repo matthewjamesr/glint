@@ -131,9 +131,14 @@ class AdminsController extends Controller
             ]);
               
             if (!$validatorSuccess) {
-                Flash::set("You do not have the appropriate access for that resource.", "alert");
-                Flash::set("warning", "alertType");
-                //Router::push("/dashboard/content/new?type=video");
+                echo view('pages.admin.content.add', [
+                    "countries" => Country::all(),
+                    "type" => "video",
+                    "alert" => json_encode(Form::errors()),
+                    "alertType" => "warning",
+                    "data" => $data,
+                    "errors" => Form::errors()
+                ]);
             } else {  
                 header('Content-Type: text/html; charset=ISO-8859-1');
 

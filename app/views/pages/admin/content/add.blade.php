@@ -67,7 +67,7 @@
                             @else
                                 <div class="mb-3 col-sm-12 col-md-6">
                                     <label for="video_url" class="form-label is-valid">Video URL</label>
-                                    <input type="text" class="form-control" id="video_url" name="video_url" aria-describedby="videoHelp" autocomplete="off">
+                                    <input type="text" class="form-control" id="video_url" name="video_url" aria-describedby="videoHelp" autocomplete="off" value="{{ $data['video_url'] ?? '' }}">
                                     <div id="videoHelp" class="form-text">Paste URL to video</div>
                                     <div class="float-start" id="editor" style="opacity: 0; max-height: 0px !important;"></div>
                                     <input type="hidden" name="markdown" id="markdown" value="{{ $data['markdown'] ?? '' }}">
