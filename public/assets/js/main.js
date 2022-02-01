@@ -65,6 +65,8 @@ const editor = new Editor({
     previewStyle: 'vertical'
 })
 
+editor.setMarkdown(document.querySelector('#markdown').value);
+
 document.querySelector('#editorForm').addEventListener('submit', e => {
     e.preventDefault();
     document.querySelector('#markdown').value = editor.getMarkdown();

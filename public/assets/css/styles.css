@@ -194,8 +194,8 @@ i.fa-reddit {
     width: fit-content;
 }
 
-.alert-container .alert strong {
-    margin-right: 5px;
+.alert-container .alert strong, .alert strong {
+    margin-right: 15px;
 }
 
 .navbar .navbar-nav .nav-item .nav-link {

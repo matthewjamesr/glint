@@ -32,12 +32,15 @@
                     </div>
                 </div>
                 <div class="row account text-start">
-                    <form id="editorForm" action="/news" method="POST">
-                        <input type="hidden" name="type" value="{{ $type }}" />
+                    <form id="editorForm" action="/dashboard/content/new" method="POST">
+                        <input type="hidden" name="type" id="type" value="{{ $type }}" />
                         <div class="row">
+                            @if (isset($alert))
+                                <div class="col-12">@include('components.alert', ['alert' => $alert, 'alertType' => $alertType])</div>
+                            @endif
                             <div class="mb-3 col-sm-12 col-md-3">
                                 <label for="country" class="form-label is-valid">Country</label>
-                                <select class="form-select" aria-label="Select a country" id="country" name="country">
+                                <select class="form-select" aria-label="Select a country" id="country" name="country" value="{{ $data['country'] ?? '' }}">
                                     <option selected>Choose country</option>
                                     @foreach ($countries as $country)
                                         <option value="{{ $country['country'] }}">{{ $country['country'] }}</option>
@@ -47,18 +50,18 @@
                             @if ($type == "article" || $type == "blip")
                                 <div class="mb-3 col-sm-12 col-md-9">
                                     <label for="title" class="form-label is-valid">Title</label>
-                                    <input type="text" class="form-control" id="title" name="title" aria-describedby="titleHelp">
+                                    <input type="text" class="form-control" id="title" name="title" value="{{ $data['title'] ?? '' }}" aria-describedby="titleHelp">
                                     <div id="titleHelp" class="form-text">Max-length: 60 characters</div>
                                 </div>
                                 <div class="mb-3 col-sm-12">
                                     <label for="description" class="form-label">Description</label>
-                                    <input type="text" class="form-control" id="description" name="description">
+                                    <input type="text" class="form-control" id="description" name="description" value="{{ $data['description'] ?? '' }}">
                                     <div id="descriptionHelp" class="form-text">Max-length: 120 characters</div>
                                 </div>
                                 <div class="mb-3 col-12">
                                     <label for="markdown" class="form-label">Content</label>
                                     <div id="editor"></div>
-                                    <input type="hidden" name="markdown" id="markdown">
+                                    <input type="hidden" name="markdown" id="markdown" value="{{ $data['markdown'] ?? '' }}">
                                 </div>
                             @else
                                 <div class="mb-3 col-sm-12 col-md-6">
@@ -68,7 +71,8 @@
                                 </div>
                             @endif
                         </div>
-                        <button type="submit" class="btn btn-primary float-end">Submit</button>
+                        <button type="submit" class="btn btn-primary float-end" name="command" value="publish">Publish</button>
+                        <button type="submit" class="btn btn-secondary float-end" name="command" value="save">Save</button>
                     </form>
                 </div>
             </div>

@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Models\Country;
 use App\Models\News;
 use Leaf\Auth;
+use Leaf\Flash;
 use Leaf\Form;
 use Leaf\Router;
 use Parsedown;
@@ -83,8 +84,10 @@ class NewsController extends Controller
             ]);
               
             if (!$validatorSuccess) {
-                response()->throwErr(Form::errors());
-                Router::push("/");
+                Flash::set("You must have missed something:" . json_encode(Form::errors()), "alert");
+                Flash::set("warning", "alertType");
+                Router::push("/dashboard/content/new?type=article");
+                echo view('pages.admin.content.add', ['type' => "article"]);
             } else {            
                 $row = new News;
                 $row->title = $data['title'];
@@ -107,8 +110,9 @@ class NewsController extends Controller
             ]);
               
             if (!$validatorSuccess) {
-                response()->throwErr(Form::errors());
-                Router::push("/");
+                Flash::set("You do not have the appropriate access for that resource.", "alert");
+                Flash::set("warning", "alertType");
+                Router::push("/dashboard/content/new?type=video");
             } else {  
                 header('Content-Type: text/html; charset=ISO-8859-1');
 
