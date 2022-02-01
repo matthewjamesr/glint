@@ -22,8 +22,13 @@
             <div class="border" style="border: 0px !important;">
                 <div class="row account text-start">
                     <div class="col-12">
-                        <h2 class="float-start" style="font-weight: 900;">Draft {{ $type }}</h2>
-                        <p style="clear: both; line-break: break-word;">This content has not been published</p>
+                        <a class="float-start" id="add-content-back" href="/dashboard/content">
+                            <h2><i class="fas fa-long-arrow-alt-left"></i></h2>
+                        </a>
+                        <div class="float-start">
+                            <h2 class="float-start" style="font-weight: 900;">Draft {{ $type }}</h2>
+                            <p style="clear: both; line-break: break-word;">This content has not been published</p>
+                        </div>
                     </div>
                 </div>
                 <div class="row account text-start">

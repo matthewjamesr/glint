@@ -130,6 +130,63 @@ i.fa-reddit {
     padding: 2px;
 }
 
+.toastui-editor-defaultUI-toolbar {
+    background: rgb(34, 37, 41) !important;
+    border-bottom: 1px rgb(34, 37, 41) !important;
+}
+
+.toastui-editor-mode-switch {
+    background: rgb(34, 37, 41) !important;
+    border-top: none !important;
+}
+
+.toastui-editor-mode-switch .tab-item {
+    background: rgb(47, 51, 56) !important;
+    border: 1px solid rgb(66, 72, 80) !important;
+}
+
+.toastui-editor-defaultUI, .toastui-editor-main, .toastui-editor-main-container, .toastui-editor-md-splitter {
+    background: rgb(25, 28, 31) !important;
+    color: #fff  !important;
+    border: 1px solid rgb(42, 46, 51) !important;
+    border-radius: 10px !important;
+}
+
+.ProseMirror {
+    color: #fff !important;
+    background: rgb(25, 28, 31) !important;
+}
+
+.toastui-editor-toolbar-icons {
+    color: #fff !important;
+    border: 1px solid rgb(42, 46, 51) !important;
+}
+
+.toastui-editor-main, .toastui-editor-main-container {
+    border-radius: 0px !important;
+    color: #fff !important;
+}
+
+.toastui-editor-popup {
+    background: rgb(25, 28, 31) !important;
+    border: 1px solid rgb(42, 46, 51) !important;
+}
+
+.toastui-editor-popup-body li:hover {
+    background: rgb(42, 46, 51) !important;
+}
+
+.toastui-editor-contents .toastui-editor-contents,
+.toastui-editor-contents p,
+.toastui-editor-contents h1,
+.toastui-editor-contents h2,
+.toastui-editor-contents h3,
+.toastui-editor-contents h4,
+.toastui-editor-contents h5,
+.toastui-editor-contents h6 {
+    color: #fff !important;
+}
+
 .alert-container {
     margin: 30px auto -30px auto;
     padding-left: 0px;
@@ -494,7 +551,14 @@ p {
 }
 
 #editor {
-    background-color: #fff;
+    background: rgb(34, 37, 41);
+    border-radius: 3px !important;
+}
+
+#editorForm select, #editorForm input {
+    background-color: rgb(34, 37, 41);
+    color: #fff;
+    border: 1px solid rgb(42, 46, 51);
 }
 
 #form-country-input, #form-title-input, #form-description-input, #form-video-url-input, #form-editor-input {
@@ -562,6 +626,7 @@ p {
     margin-right: -10px;
     padding: 10px 15px 10px 15px;
     color: #0d6efd;
+    border: 1px solid rgb(34, 37, 41);
     border-radius: 10px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -649,4 +714,17 @@ p {
 .stats i.fa-info-circle {
     margin: -1px 12px 0px 0px;
     font-size: 16pt !important;
+}
+
+#add-content-back {
+    margin-right: 15px;
+    padding: 10px 15px 10px 15px;
+    border: 1px solid rgb(34, 37, 41);
+    border-radius: 10px;
+    color: #0d6efd;
+    transition: all 0.3s ease;
+}
+
+#add-content-back:hover {
+    background: rgb(34, 37, 41);
 }
