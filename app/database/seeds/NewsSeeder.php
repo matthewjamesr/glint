@@ -30,6 +30,7 @@ class NewsSeeder extends Seeder
             <p>Hi! I’m your first Markdown file in <strong>StackEdit</strong>. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the <strong>file explorer</strong> on the left corner of the navigation bar.</p>
         ';
 
+        $news->published = true;
         $news->save();
 
         $news = new News();
@@ -46,6 +47,7 @@ class NewsSeeder extends Seeder
         ';
         $news->video_url = "https://www.youtube.com/watch?v=fqpfxr0YHwY";
 
+        $news->published = true;
         $news->save();
 
 
@@ -65,6 +67,7 @@ class NewsSeeder extends Seeder
             <p>Hi! I’m your first Markdown file in <strong>StackEdit</strong>. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the <strong>file explorer</strong> on the left corner of the navigation bar.</p>
         ';
 
+        $news->published = true;
         $news->save();
 
         $news = new News();
@@ -83,6 +86,7 @@ class NewsSeeder extends Seeder
             <p>Hi! I’m your first Markdown file in <strong>StackEdit</strong>. If you want to learn about StackEdit, you can read me. If you want to play with Markdown, you can edit me. Once you have finished with me, you can create new files by opening the <strong>file explorer</strong> on the left corner of the navigation bar.</p>
         ';
 
+        $news->published = true;
         $news->save();
     }
 }
