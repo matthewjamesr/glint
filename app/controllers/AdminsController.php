@@ -101,7 +101,7 @@ class AdminsController extends Controller
                 echo view('pages.admin.content.add', [
                     "countries" => Country::all(),
                     "type" => "article",
-                    "alert" => json_encode(Form::errors()),
+                    "alert" => Form::errors(),
                     "alertType" => "warning",
                     "data" => $data,
                     "errors" => Form::errors()
@@ -134,7 +134,7 @@ class AdminsController extends Controller
                 echo view('pages.admin.content.add', [
                     "countries" => Country::all(),
                     "type" => "video",
-                    "alert" => json_encode(Form::errors()),
+                    "alert" => Form::errors(),
                     "alertType" => "warning",
                     "data" => $data,
                     "errors" => Form::errors()
