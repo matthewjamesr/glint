@@ -57,7 +57,7 @@ class AdminsController extends Controller
     }
 
     public function contentCreate () {
-        $type = request("type");
+        $type = $_GET["type"];
 
         echo view("pages.admin.content.add", [
             "countries" => Country::all(),
