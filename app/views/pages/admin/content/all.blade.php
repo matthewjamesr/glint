@@ -71,12 +71,8 @@
                     @foreach ($content as $content)
                         <div class="col-12 content-item">
                             @if ($content->type != "video")
-                                <a href="/{{ strtolower($content['country']) }}/{{ str_replace(' ', '_', $content['title']) }}">
-                                    @if ($content->published)
-                                        <h3>{{ $content["title"] }}<i class="fas fa-book-reader float-end published" data-bs-toggle="tooltip" data-bs-placement="left" title="Published"></i></h3>
-                                    @else
-                                        <h3>{{ $content["title"] }}<i class="fas fa-book-reader float-end draft" data-bs-toggle="tooltip" data-bs-placement="left" title="Draft"></i></h3>
-                                    @endif
+                                <a class="float-start" href="/{{ strtolower($content['country']) }}/{{ str_replace(' ', '_', $content['title']) }}">
+                                    <h3>{{ $content->title }}</h3>
                                     <p>{{ $content["description"] }}</p>
                                     <ul class="metadata">
                                         <li><i class="fas fa-user"></i> {{ App\Models\User::where(['id' => $content["author"]])->pluck("fullname")->first() }} </li>
@@ -84,13 +80,14 @@
                                         <li><i class="fas fa-filter"></i> {{ $content->type }}</li>
                                     </ul>
                                 </a>
+                                @if ($content->published)
+                                    <a class="float-end" href="/dashboard/content/toggle/{{ $content->id }}"><h3><i class="fas fa-book-reader float-end published" data-bs-toggle="tooltip" data-bs-placement="left" title="Published"></i></h3></a>
+                                @else
+                                    <a class="float-end" href="/dashboard/content/toggle/{{ $content->id }}"><h3><i class="fas fa-book-reader float-end draft" data-bs-toggle="tooltip" data-bs-placement="left" title="Draft"></i></h3></a>
+                                @endif
                             @else
-                                <a href="{{ $content['video_url'] }}" target="_blank">
-                                    @if ($content->published)
-                                        <h3>{{ $content["title"] }}<i class="fas fa-book-reader float-end published" data-bs-toggle="tooltip" data-bs-placement="left" title="Published"></i></h3>
-                                    @else
-                                        <h3>{{ $content["title"] }}<i class="fas fa-book-reader float-end draft" data-bs-toggle="tooltip" data-bs-placement="left" title="Draft"></i></h3>
-                                    @endif
+                                <a class="float-start" href="{{ $content['video_url'] }}" target="_blank">
+                                    <h3>{{ $content->title }}</h3>
                                     <p>{{ $content["description"] }}</p>
                                     <ul class="metadata">
                                         <li><i class="fas fa-user"></i> {{ App\Models\User::where(['id' => $content["author"]])->pluck("fullname")->first() }} </li>
@@ -98,6 +95,11 @@
                                         <li><i class="fas fa-filter"></i> {{ $content->type }}</li>
                                     </ul>
                                 </a>
+                                @if ($content->published)
+                                    <a class="float-end" href="/dashboard/content/toggle/{{ $content->id }}"><h3><i class="fas fa-book-reader float-end published" data-bs-toggle="tooltip" data-bs-placement="left" title="Published"></i></h3></a>
+                                @else
+                                    <a class="float-end" href="/dashboard/content/toggle/{{ $content->id }}"><h3><i class="fas fa-book-reader float-end draft" data-bs-toggle="tooltip" data-bs-placement="left" title="Draft"></i></h3></a>
+                                @endif
                             @endif
                             <!--<span class="view d-none d-sm-none d-md-block float-end">View details</span>-->
                         </div>

@@ -199,4 +199,20 @@ class AdminsController extends Controller
             }
         }
     }
+
+    public function toggle_publish($id) {
+        Auth::guard('auth');
+
+        $item = News::find($id);
+        
+        if ($item->published) {
+            $item->published = false;
+        } else {
+            $item->published = true;
+        }
+
+        $item->save();
+
+        Router::push('/dashboard/content');
+    }
 }
