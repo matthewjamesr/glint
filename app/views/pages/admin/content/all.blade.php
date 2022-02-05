@@ -70,38 +70,20 @@
                 <div class="row account text-start">
                     @foreach ($content as $content)
                         <div class="col-12 content-item">
-                            @if ($content->type != "video")
-                                <a class="float-start" href="/{{ strtolower($content['country']) }}/{{ str_replace(' ', '_', $content['title']) }}">
-                                    <h3>{{ $content->title }}</h3>
-                                    <p>{{ $content["description"] }}</p>
-                                    <ul class="metadata">
-                                        <li><i class="fas fa-user"></i> {{ App\Models\User::where(['id' => $content["author"]])->pluck("fullname")->first() }} </li>
-                                        <li><i class="fas fa-calendar-day"></i> {{ html_entity_decode($content->created_at->format('Y-m-d'), ENT_QUOTES) }}</li>
-                                        <li><i class="fas fa-filter"></i> {{ $content->type }}</li>
-                                    </ul>
-                                </a>
-                                @if ($content->published)
-                                    <a class="float-end" href="/dashboard/content/toggle/{{ $content->id }}"><h3><i class="fas fa-book-reader float-end published" data-bs-toggle="tooltip" data-bs-placement="left" title="Published"></i></h3></a>
-                                @else
-                                    <a class="float-end" href="/dashboard/content/toggle/{{ $content->id }}"><h3><i class="fas fa-book-reader float-end draft" data-bs-toggle="tooltip" data-bs-placement="left" title="Draft"></i></h3></a>
-                                @endif
+                            <a class="float-start" href="/dashboard/content/{{ $content->id }}/edit">
+                                <h3>{{ $content->title }}</h3>
+                                <p>{{ $content["description"] }}</p>
+                                <ul class="metadata">
+                                    <li><i class="fas fa-user"></i> {{ App\Models\User::where(['id' => $content["author"]])->pluck("fullname")->first() }} </li>
+                                    <li><i class="fas fa-calendar-day"></i> {{ html_entity_decode($content->created_at->format('Y-m-d'), ENT_QUOTES) }}</li>
+                                    <li><i class="fas fa-filter"></i> {{ $content->type }}</li>
+                                </ul>
+                            </a>
+                            @if ($content->published)
+                                <a class="float-end" href="/dashboard/content/toggle/{{ $content->id }}"><h3><i class="fas fa-book-reader float-end published" data-bs-toggle="tooltip" data-bs-placement="left" title="Published"></i></h3></a>
                             @else
-                                <a class="float-start" href="{{ $content['video_url'] }}" target="_blank">
-                                    <h3>{{ $content->title }}</h3>
-                                    <p>{{ $content["description"] }}</p>
-                                    <ul class="metadata">
-                                        <li><i class="fas fa-user"></i> {{ App\Models\User::where(['id' => $content["author"]])->pluck("fullname")->first() }} </li>
-                                        <li><i class="fas fa-calendar-day"></i> {{ html_entity_decode($content->created_at->format('Y-m-d'), ENT_QUOTES) }}</li>
-                                        <li><i class="fas fa-filter"></i> {{ $content->type }}</li>
-                                    </ul>
-                                </a>
-                                @if ($content->published)
-                                    <a class="float-end" href="/dashboard/content/toggle/{{ $content->id }}"><h3><i class="fas fa-book-reader float-end published" data-bs-toggle="tooltip" data-bs-placement="left" title="Published"></i></h3></a>
-                                @else
-                                    <a class="float-end" href="/dashboard/content/toggle/{{ $content->id }}"><h3><i class="fas fa-book-reader float-end draft" data-bs-toggle="tooltip" data-bs-placement="left" title="Draft"></i></h3></a>
-                                @endif
+                                <a class="float-end" href="/dashboard/content/toggle/{{ $content->id }}"><h3><i class="fas fa-book-reader float-end draft" data-bs-toggle="tooltip" data-bs-placement="left" title="Draft"></i></h3></a>
                             @endif
-                            <!--<span class="view d-none d-sm-none d-md-block float-end">View details</span>-->
                         </div>
                     @endforeach
                 </div>

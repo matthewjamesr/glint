@@ -36,4 +36,7 @@ app()->group("/dashboard", function () {
     app()->get("/content/new", "AdminsController@contentCreate");
     app()->post("/content/new", "AdminsController@contentStore");
     app()->get("/content/toggle/{id}", "AdminsController@toggle_publish");
+    app()->get("/content/{id}/edit", "AdminsController@contentEdit");
+    app()->post("/content/{id}/update", "AdminsController@contentUpdate");
+    app()->get("/content/{id}/delete", "AdminsController@contentDelete");
 });
