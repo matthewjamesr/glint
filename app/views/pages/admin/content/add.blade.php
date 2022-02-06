@@ -44,8 +44,12 @@
                                 <select class="form-select" aria-label="Select a country" id="country" name="country" value="{{ $data['country'] ?? '' }}">
                                     <option selected>Choose country</option>
                                     @foreach ($countries as $country)
-                                        @if ($data->country == $country->country)
-                                            <option value="{{ $country->country }}" selected>{{ $country->country }}</option>
+                                        @if (isset($data))
+                                            @if ($data['country'] == $country->country)
+                                                <option value="{{ $country->country }}" selected>{{ $country->country }}</option>
+                                            @else
+                                                <option value="{{ $country->country }}">{{ $country->country }}</option>
+                                            @endif
                                         @else
                                             <option value="{{ $country->country }}">{{ $country->country }}</option>
                                         @endif
