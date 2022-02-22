@@ -3,7 +3,6 @@
 namespace App\Controllers\Auth;
 
 use Leaf\Auth;
-use Leaf\Mail;
 
 class RegisterController extends Controller
 {
@@ -40,24 +39,6 @@ class RegisterController extends Controller
             $user = Auth::register("users", $credentials, [
                 "username", "email"
             ]);
-
-            $mail = new Leaf\Mail(getenv("MAIL_HOST"), getenv("MAIL_PORT"), ['username' => getenv("MAIL_USERNAME"), 'password' => getenv("MAIL_PASSWORD")], true, true);
-            $mail->write([
-                "subject" => "Glint: Verify Account",
-                "body" => "Your verification code: " + $user->verify_code,
-                "recepient_email" => $user->email,
-                "sender_name" => "no-reply@itsglint.com"
-            ]);
-
-            if (!$mail) {
-                $app->response->throwErr($mail->errors());
-            }
-
-            try {
-                $mail->send();
-            } catch (\Throwable $th) {
-                throw $mail->errors();
-            }
     
             if (!$user) {
                 echo view("pages.auth.register", array_merge(

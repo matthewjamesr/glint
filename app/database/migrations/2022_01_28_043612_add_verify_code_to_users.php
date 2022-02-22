@@ -17,8 +17,10 @@ class AddVerifyCodeToUsers extends Database
             
             if ($column) {
                 $table->string("verify_code")->change();
+                $table->integer("verify_code_sent")->default(0)->change();
             } else {
                 $table->string("verify_code");
+                $table->integer("verify_code_sent")->default(0);
             }
         });
 
