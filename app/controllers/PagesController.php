@@ -52,7 +52,7 @@ class PagesController extends Controller
             $flashAlert = Flash::display("alert");
             $flashAlertType = Flash::display("alertType");
 
-            $news = News::limit(9)->orderBy('created_at', 'DESC')->get();
+            $news = News::where(['published' => true])->take(9)->orderBy('created_at', 'DESC')->get();
             echo view("pages.welcome", ['news' => $news, "alert" => $flashAlert, "alertType" => $flashAlertType]);
         }
     }
