@@ -52,12 +52,12 @@ class NewsController extends Controller
         if (auth()->status()) {
             $user = Auth::user("users", ["password"]);
             echo view('news.show', ['user' => $user, 'article' => $article]);
-        } else {
-            if (!$article->published) {
-                Flash::set("That content isn't quiet ready yet.", "alert");
-                Flash::set("warning", "alertType");
-                Router::push("/");
-            }
+        }
+
+        if (!$article->published && !auth()->status()) {
+            Flash::set("That content isn't quiet ready yet.", "alert");
+            Flash::set("warning", "alertType");
+            Router::push("/");
         }
     }
 
