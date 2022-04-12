@@ -61,7 +61,7 @@ class NewsController extends Controller
         }
 
         if ($article->published) {
-            echo view('news.show', ['user' => $user, 'article' => $article]);
+            echo view('news.show', ['article' => $article]);
         }
     }
 
