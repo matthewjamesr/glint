@@ -59,6 +59,10 @@ class NewsController extends Controller
             Flash::set("warning", "alertType");
             Router::push("/");
         }
+
+        if ($article->published) {
+            echo view('news.show', ['user' => $user, 'article' => $article]);
+        }
     }
 
     public function showRussia($title)
